@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio Profissional de Ewerton Vieira - Coordenador de Portfólio, Especialista em Business Intelligence, Dados e Estratégia.">
+    <title>Ewerton Vieira | Coordenador de Portfólio & Especialista BI</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuração Customizada -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0f172a',
+                        darker: '#020617',
+                        card: '#1e293b',
+                        accent: '#06b6d4', // Cyan 500
+                        accentHover: '#0891b2', // Cyan 600
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #cbd5e1;
+            overflow-x: hidden;
+        }
+        
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #06b6d4, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .lang-active {
+            background-color: rgba(6, 182, 212, 0.2);
+            color: #06b6d4;
+            border-color: #06b6d4;
+        }
+    </style>
+</head>
+<body class="antialiased relative bg-grid">
+
+    <header class="fixed w-full top-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#inicio" class="flex-shrink-0 font-heading font-bold text-2xl tracking-tighter text-white hover:opacity-80 transition-opacity" aria-label="Voltar ao início">
+                    Ewerton<span class="text-accent">.</span>
+                </a>
+                
+                <div class="flex items-center gap-6">
+                    <!-- Desktop Nav -->
+                    <nav class="hidden md:block">
+                        <ul class="flex space-x-8 items-center">
+                            <li><a href="#inicio" data-i18n="nav_home" class="text-sm font-medium hover:text-accent transition-colors">Início</a></li>
+                            <li><a href="#resumo" data-i18n="nav_summary" class="text-sm font-medium hover:text-accent transition-colors">Resumo</a></li>
+                            <li><a href="#habilidades" data-i18n="nav_skills" class="text-sm font-medium hover:text-accent transition-colors">Habilidades</a></li>
+                            <li><a href="#projetos" data-i18n="nav_case" class="text-sm font-medium hover:text-accent transition-colors">Case</a></li>
+                            <li><a href="#experiencia" data-i18n="nav_experience" class="text-sm font-medium hover:text-accent transition-colors">Experiência</a></li>
+                            <li><a href="#formacao" data-i18n="nav_education" class="text-sm font-medium hover:text-accent transition-colors">Formação</a></li>
+                            <li><a href="#contato" data-i18n="nav_contact" class="text-sm font-medium hover:text-accent transition-colors">Contato</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Language Switcher with Flags -->
+                    <div class="flex items-center gap-1 border border-gray-700 rounded-md p-1.5 bg-gray-800/50">
+                        <button onclick="setLanguage('pt')" id="btn-pt" class="flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded transition-colors lang-active text-white" aria-label="Mudar para Português">
+                            <svg class="w-4 h-3 rounded-[2px] shadow-sm object-cover" viewBox="0 0 720 504" xmlns="http://www.w3.org/2000/svg"><path fill="#009b3a" d="M0 0h720v504H0z"/><path fill="#fedf00" d="m360 30 330 222-330 222L30 252z"/><circle fill="#002776" cx="360" cy="252" r="102"/><path fill="#fff" d="M268 244h184v16H268z"/></svg>
+                            <span>PT</span>
+                        </button>
+                        <button onclick="setLanguage('en')" id="btn-en" class="flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded hover:bg-gray-700 transition-colors text-gray-400" aria-label="Switch to English">
+                            <svg class="w-4 h-3 rounded-[2px] shadow-sm object-cover" viewBox="0 0 50 30" xmlns="http://www.w3.org/2000/svg"><path fill="#bd2228" d="M0 0h50v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l50 30m0-30L0 30"/><path stroke="#002b66" stroke-width="4" d="M0 0l50 30m0-30L0 30"/><path stroke="#fff" stroke-width="10" d="M25 0v30M0 15h50"/><path stroke="#bd2228" stroke-width="6" d="M25 0v30M0 15h50"/></svg>
+                            <span>EN</span>
+                        </button>
+                        <button onclick="setLanguage('es')" id="btn-es" class="flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded hover:bg-gray-700 transition-colors text-gray-400" aria-label="Cambiar a Español">
+                            <svg class="w-4 h-3 rounded-[2px] shadow-sm object-cover" viewBox="0 0 750 500" xmlns="http://www.w3.org/2000/svg"><path fill="#aa151b" d="M0 0h750v500H0z"/><path fill="#f1bf00" d="M0 125h750v250H0z"/></svg>
+                            <span>ES</span>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden ml-2">
+                        <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2" aria-label="Abrir menu de navegação">
+                            <i class="fa-solid fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-card border-b border-gray-800 shadow-xl absolute w-full">
+            <ul class="px-4 pt-2 pb-6 space-y-2 sm:px-3 text-center">
+                <li><a href="#inicio" data-i18n="nav_home" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Início</a></li>
+                <li><a href="#resumo" data-i18n="nav_summary" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Resumo</a></li>
+                <li><a href="#habilidades" data-i18n="nav_skills" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Habilidades</a></li>
+                <li><a href="#projetos" data-i18n="nav_case" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Case</a></li>
+                <li><a href="#experiencia" data-i18n="nav_experience" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Experiência</a></li>
+                <li><a href="#formacao" data-i18n="nav_education" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Formação</a></li>
+                <li><a href="#contato" data-i18n="nav_contact" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="pt-32 pb-20 lg:pt-48 lg:pb-32 flex items-center min-h-screen relative overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px] -z-10"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
+                <div class="text-center max-w-4xl mx-auto reveal">
+                    <div class="relative w-36 h-36 md:w-44 md:h-44 mx-auto mb-8">
+                        <div class="absolute inset-0 bg-accent rounded-full blur-md opacity-40 animate-pulse"></div>
+                        <img src="img/perfil.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e293b/06b6d4?text=EV'" alt="Foto de Ewerton Vieira" class="relative w-full h-full object-cover object-center rounded-full border-4 border-card shadow-2xl z-10">
+                    </div>
+                    
+                    <p data-i18n="hero_hello" class="text-accent font-semibold tracking-wide uppercase text-sm mb-4">Olá, eu sou</p>
+                    <h1 class="text-5xl md:text-7xl font-heading font-extrabold text-white mb-6 tracking-tight">
+                        Ewerton Vieira
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-heading font-bold text-gray-400 mb-8">
+                        <span data-i18n="hero_role1">Coordenador de Portfólio</span> <span class="text-gradient" data-i18n="hero_role_highlight">& Especialista em Dados</span>
+                    </h2>
+                    <p data-i18n="hero_desc" class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                        Transformando dados complexos em insights acionáveis que impulsionam decisões e eficiência operacional, com foco na arquitetura analítica e inovação.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#contato" class="w-full sm:w-auto px-8 py-3 rounded-full bg-accent hover:bg-accentHover text-white font-medium transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]">
+                            <i class="fa-regular fa-envelope mr-2"></i> <span data-i18n="hero_btn_contact">Entrar em Contato</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ewertonjbv" target="_blank" rel="noopener noreferrer" aria-label="Acessar perfil do LinkedIn" class="w-full sm:w-auto px-8 py-3 rounded-full border border-gray-600 hover:border-white hover:text-white transition-all bg-card/50 backdrop-blur-sm text-gray-300">
+                            <i class="fa-brands fa-linkedin mr-2"></i> <span data-i18n="hero_btn_linkedin">Ver LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resumo" class="py-20 bg-darker/50">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="reveal">
+                    <div class="flex items-center gap-4 mb-12">
+                        <h2 data-i18n="summary_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Resumo Profissional</h2>
+                        <div class="h-px bg-gray-700 flex-grow"></div>
+                    </div>
+                    
+                    <div class="bg-card border border-gray-800 rounded-2xl p-8 md:p-10 shadow-xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-32 bg-accent/5 rounded-full blur-[80px] -mr-16 -mt-16 z-0"></div>
+                        
+                        <div class="relative z-10 text-lg leading-relaxed text-gray-300 space-y-6">
+                            <p data-i18n="summary_p1">
+                                Coordenador de Portfólio e Especialista em Business Intelligence com <strong>mais de 10 anos de experiência</strong> em arquitetura analítica, automação de dados e liderança técnica. Atualmente na Zurich Insurance, atuo como ponte estratégica com a alta gestão (C-Level), unindo gestão de pessoas, inteligência artificial aplicada e governança de dados para impulsionar a eficiência operacional.
+                            </p>
+                            <p data-i18n="summary_p2">
+                                Possuo sólido domínio em <strong>Power BI, Databricks, PySpark, Python, SQL e ecossistema Microsoft Fabric</strong>, com histórico comprovado em projetos de grande escala — como a otimização de ambientes que reduziu ciclos de fechamento de <span class="text-accent font-semibold">20 dias para apenas 8 horas</span>. Sou apaixonado por criar soluções escaláveis, focado em UX analítico e em transformar dados complexos em decisões de alto impacto.
+                            </p>
+                        </div>
+                        
+                        <div class="mt-8 pt-8 border-t border-gray-700 grid grid-cols-2 md:grid-cols-4 gap-6 text-center relative z-10">
+                            <div>
+                                <h4 class="text-3xl font-heading font-bold text-accent">+10</h4>
+                                <p data-i18n="summary_stat1" class="text-sm text-gray-400 mt-1">Anos de Experiência</p>
+                            </div>
+                            <div>
+                                <h4 data-i18n="summary_stat2_title" class="text-3xl font-heading font-bold text-accent">Coordenador</h4>
+                                <p data-i18n="summary_stat2" class="text-sm text-gray-400 mt-1">Portfólio & Dados</p>
+                            </div>
+                            <div>
+                                <h4 class="text-3xl font-heading font-bold text-accent">Big Data</h4>
+                                <p class="text-sm text-gray-400 mt-1">Databricks & PySpark</p>
+                            </div>
+                            <div>
+                                <h4 class="text-3xl font-heading font-bold text-accent">SP</h4>
+                                <p data-i18n="summary_stat4" class="text-sm text-gray-400 mt-1">Base de Atuação</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="habilidades" class="py-20">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="reveal">
+                    <div class="flex items-center gap-4 mb-12">
+                        <h2 data-i18n="skills_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Competências Técnicas</h2>
+                        <div class="h-px bg-gray-700 flex-grow"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Card 1 -->
+                        <div class="bg-card border border-gray-800 rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 hover:border-accent group">
+                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-chart-pie text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-heading font-bold text-white mb-4">Business Intelligence</h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> Power BI</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> Microsoft Fabric</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> Data Visualization</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> <span data-i18n="skills_portfolio">Análise de Portfólio</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-card border border-gray-800 rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 hover:border-accent group">
+                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-database text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-heading font-bold text-white mb-4">Data Platforms & ETL</h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> Databricks</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> SQL Server</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> Power Query (M)</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> SAS Enterprise</li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="bg-card border border-gray-800 rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 hover:border-accent group">
+                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-code text-xl"></i>
+                            </div>
+                            <h3 data-i18n="skills_lang_title" class="text-xl font-heading font-bold text-white mb-4">Linguagens</h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> DAX</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> SQL</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> PySpark (Python)</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> VBA</li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="bg-card border border-gray-800 rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 hover:border-accent group">
+                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-briefcase text-xl"></i>
+                            </div>
+                            <h3 data-i18n="skills_aff_title" class="text-xl font-heading font-bold text-white mb-4">Análise de Afinidades</h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1.5"></i> <span data-i18n="skills_aff1">Gestão de Carteira</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1.5"></i> <span data-i18n="skills_aff2">Performance de Produto</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1.5"></i> <span data-i18n="skills_aff3">Avaliação de Riscos</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1.5"></i> <span data-i18n="skills_aff4">Monitoramento de Sinistralidade</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projetos" class="py-20 bg-darker/50">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="reveal">
+                    <div class="flex items-center gap-4 mb-12">
+                        <h2 data-i18n="case_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Case</h2>
+                        <div class="h-px bg-gray-700 flex-grow"></div>
+                    </div>
+
+                    <div class="bg-card border border-gray-800 rounded-2xl overflow-hidden shadow-2xl">
+                        <div class="p-6 md:p-8 border-b border-gray-800">
+                            <div class="flex justify-between items-start flex-col md:flex-row gap-4">
+                                <div>
+                                    <h3 data-i18n="case_subtitle" class="text-2xl font-heading font-bold text-white mb-2">Dashboard Estratégico de Portfólio</h3>
+                                    <p data-i18n="case_desc" class="text-gray-400 max-w-3xl">
+                                        Case desenvolvido para o processo seletivo da Zurich. Este painel interativo demonstra capacidades avançadas de modelagem, tratamento de dados e UI/UX aplicados ao Business Intelligence, permitindo uma análise clara e acionável dos indicadores do negócio.
+                                    </p>
+                                </div>
+                                <span class="bg-accent/10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap flex items-center shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+                                    <i class="fa-solid fa-chart-pie mr-2"></i> Power BI
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="relative w-full" style="padding-top: 56.25%;">
+                            <iframe 
+                                title="Dashboard Zurich - Ewerton Vieira"
+                                class="absolute top-0 left-0 w-full h-full bg-gray-900"
+                                src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMTQ5MDgxMjYtNWI0Yy00ODlhLTkwNjEtN2JlNzcwYzU2MThlIiwidCI6IjQxZGMxZTY5LTQ4ZDAtNDFmZC05YTA5LTFkOGY1OTIwYzg5YiJ9" 
+                                frameborder="0" 
+                                allowFullScreen="true">
+                            </iframe>
+                        </div>
+                        <div class="p-3 bg-gray-900/80 text-center border-t border-gray-800">
+                            <p class="text-xs text-gray-500"><i class="fa-solid fa-mouse-pointer mr-1"></i> <span data-i18n="case_hint">Interaja com o painel acima. Utilize o modo tela cheia no canto inferior direito do dashboard para a melhor experiência.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiencia" class="py-20">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="reveal">
+                    <div class="flex items-center gap-4 mb-12">
+                        <h2 data-i18n="exp_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Experiência Profissional</h2>
+                        <div class="h-px bg-gray-700 flex-grow"></div>
+                    </div>
+
+                    <div class="relative border-l-2 border-gray-700 ml-3 md:ml-6 space-y-12">
+                        
+                        <!-- Zurich -->
+                        <div class="relative pl-8 md:pl-12">
+                            <div class="absolute w-4 h-4 bg-accent rounded-full -left-[9px] top-1.5 border-4 border-darker shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
+                            
+                            <h4 class="text-xl text-white mb-6 font-medium font-heading"><i class="fa-regular fa-building mr-2 text-accent"></i>Zurich Insurance Company Ltd <span data-i18n="loc_sp" class="text-gray-500 text-sm ml-2 font-sans">| São Paulo, SP</span></h4>
+                            
+                            <!-- Cargo Atual -->
+                            <div class="mb-8">
+                                <div class="flex flex-col lg:flex-row lg:items-start justify-between mb-3 gap-2">
+                                    <div>
+                                        <h3 data-i18n="exp_zurich_role1" class="text-2xl font-heading font-bold text-white">Coordenador de Portfólio Afinidades</h3>
+                                        <p data-i18n="exp_zurich_area" class="text-accent font-medium mt-1">Gestão de Dados, IA & Estratégia</p>
+                                    </div>
+                                    <span data-i18n="exp_zurich_date1" class="text-accent font-medium text-sm border border-accent/30 bg-accent/10 px-3 py-1 rounded-full w-fit lg:flex-shrink-0">Set 2026 - Presente</span>
+                                </div>
+                                <ul class="list-disc list-inside text-gray-300 space-y-3 text-justify">
+                                    <li data-i18n="exp_z1"><strong class="text-gray-100">Liderança técnica e desenvolvimento de equipe:</strong> Gestão, direcionamento e mentoria do time de analistas, impulsionando a alta performance, o refinamento técnico contínuo e um clima organizacional colaborativo.</li>
+                                    <li data-i18n="exp_z2"><strong class="text-gray-100">Exposição executiva e parceria estratégica:</strong> Atuação como principal ponte entre a área de Portfólio, gestores e a alta gestão. Condução de apresentações estratégicas de resultados para executivos (C-Level) e parceiros de negócio, traduzindo cenários complexos de dados em narrativas de impacto.</li>
+                                    <li data-i18n="exp_z3"><strong class="text-gray-100">Inteligência artificial e mitigação de riscos:</strong> Utilização diária de soluções de IA para otimização de rotinas analíticas e modelagem de cenários. Geração ágil de insights acionáveis com foco proativo na identificação de oportunidades.</li>
+                                    <li data-i18n="exp_z4"><strong class="text-gray-100">Arquitetura Analítica e Migração (Big Data):</strong> Liderança na estruturação de pipelines e migração de ambiente SAS para Databricks (PySpark, Python e SQL). Esse projeto reduziu o processo de fechamento de <span class="text-accent font-semibold">20 dias para apenas 8 horas</span>, otimizando a escalabilidade do negócio.</li>
+                                    <li data-i18n="exp_z5"><strong class="text-gray-100">Automação e Confiabilidade de Dados:</strong> Automatização completa de relatórios, reduzindo drasticamente o tempo de apuração. A eliminação de processos manuais mitigou erros, elevou a confiabilidade dos dados e agregou alto valor estratégico.</li>
+                                    <li data-i18n="exp_z6"><strong class="text-gray-100">UX em dados e design de dashboards (Power BI):</strong> Foco na usabilidade e na jornada do executivo ao consumir dados. Concepção visual de dashboards intuitivos e avançados (DAX/Power Query) para facilitar a decisão por stakeholders não-técnicos.</li>
+                                    <li data-i18n="exp_z7"><strong class="text-gray-100">Governança de dados e segurança:</strong> Estruturação de mecanismos de visibilidade (roadmaps e pipelines) com rigor. Implementação de segurança em nível de linha (RLS), garantindo total conformidade e controle de acesso.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Cargo Anterior -->
+                            <div class="relative mt-6 pt-6 border-t border-gray-800 border-dashed">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h3 class="text-xl font-heading font-bold text-gray-400">Portfolio Specialist | Data Visualization</h3>
+                                    <span data-i18n="exp_zurich_date2" class="text-gray-500 font-medium mt-2 md:mt-0 text-sm border border-gray-700 bg-gray-800/50 px-3 py-1 rounded-full w-fit">Jul 2025 - Ago 2026</span>
+                                </div>
+                                <ul class="list-disc list-inside text-gray-400 space-y-2 text-justify text-sm mt-3 opacity-80">
+                                    <li data-i18n="exp_z8">Atuação estratégica na modernização e otimização de processos analíticos e transição de projetos SAS para Databricks (SQL e PySpark).</li>
+                                    <li data-i18n="exp_z9">Desenvolvimento de pipelines de dados robustos e recriação de dashboards estratégicos no Power BI com análises de performance de produtos.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- AXA -->
+                        <div class="relative pl-8 md:pl-12">
+                            <div class="absolute w-4 h-4 bg-gray-500 rounded-full -left-[9px] top-1.5 border-4 border-darker"></div>
+                            <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-2 gap-4">
+                                <div>
+                                    <h3 class="text-2xl font-heading font-bold text-white">Affinity Portfolio Management Analyst / Power BI Developer</h3>
+                                </div>
+                                <div class="flex flex-col gap-2 items-start lg:items-end flex-shrink-0">
+                                    <span data-i18n="exp_axa_date" class="text-gray-400 font-medium text-sm border border-gray-700 bg-gray-800 px-3 py-1 rounded-full">Out 2022 - Jul 2025</span>
+                                </div>
+                            </div>
+                            <h4 class="text-lg text-gray-400 mb-4 font-medium"><i class="fa-regular fa-building mr-2"></i>AXA no Brasil <span data-i18n="loc_sp" class="text-gray-500 text-sm ml-2">| São Paulo, SP</span></h4>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-justify">
+                                <li data-i18n="exp_a1">Desenvolvimento e implementação de dashboards interativos em Power BI para análise e gerenciamento de portfólio, otimizando a visualização de dados para a liderança.</li>
+                                <li data-i18n="exp_a2">Realização de processos de ETL (Extração, Transformação e Carga) utilizando SQL Server e Linguagem M (Power Query).</li>
+                                <li data-i18n="exp_a3">Criação de novos indicadores de acompanhamento de performance de produtos, fornecendo insights valiosos para a estratégia de negócios.</li>
+                                <li data-i18n="exp_a4">Manutenção e otimização em relatórios desenvolvidos em Python, assegurando a continuidade e precisão das informações.</li>
+                                <li data-i18n="exp_a5">Avaliação de riscos, monitoramento de sinistralidade vs. gatilhos contratuais e análises preditivas.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tokio Marine -->
+                        <div class="relative pl-8 md:pl-12">
+                            <div class="absolute w-4 h-4 bg-gray-500 rounded-full -left-[9px] top-1.5 border-4 border-darker"></div>
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                <h3 data-i18n="exp_tokio_role" class="text-2xl font-heading font-bold text-white">Analista de Controladoria</h3>
+                                <span data-i18n="exp_tokio_date" class="text-gray-400 font-medium mt-2 md:mt-0 text-sm border border-gray-700 bg-gray-800 px-3 py-1 rounded-full w-fit">Mar 2022 - Out 2022</span>
+                            </div>
+                            <h4 class="text-lg text-gray-400 mb-4 font-medium"><i class="fa-regular fa-building mr-2"></i>Tokio Marine Seguradora <span data-i18n="loc_sp" class="text-gray-500 text-sm ml-2">| São Paulo, SP</span></h4>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-justify">
+                                <li data-i18n="exp_t1">Condução do ciclo completo de fechamento mensal, incluindo prévia de fechamento, DRE e indicadores de performance.</li>
+                                <li data-i18n="exp_t2">Automatização de processos de tratamento de dados e elaboração de relatórios utilizando Linguagem M (Power Query) e VBA, resultando em 90% de redução no tempo manual.</li>
+                                <li data-i18n="exp_t3">Desenvolvimento de relatórios e dashboards em Power BI para análise de resultados, melhorando a capacidade analítica da equipe.</li>
+                                <li data-i18n="exp_t4">Elaboração de relatórios gerenciais detalhados por regionais, sucursais e de despesas.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Almeida Santos -->
+                        <div class="relative pl-8 md:pl-12">
+                            <div class="absolute w-4 h-4 bg-gray-500 rounded-full -left-[9px] top-1.5 border-4 border-darker"></div>
+                            <div class="flex flex-col lg:flex-row lg:items-start justify-between mb-2 gap-4">
+                                <div>
+                                    <h3 data-i18n="exp_alm_role1" class="text-2xl font-heading font-bold text-white">Coordenador de Planejamento e Controle (I e II)</h3>
+                                    <h3 class="text-lg font-heading font-medium text-gray-400 mt-1"><span data-i18n="exp_alm_role2">Analista de Planejamento e Controle</span> <span data-i18n="exp_alm_date2" class="text-sm">(Fev 2019 - Mai 2019)</span></h3>
+                                    <h3 class="text-lg font-heading font-medium text-gray-400"><span data-i18n="exp_alm_role3">Assistente / Auxiliar Financeiro</span> <span data-i18n="exp_alm_date3" class="text-sm">(Ago 2017 - Fev 2019)</span></h3>
+                                </div>
+                                <span data-i18n="exp_alm_date1" class="text-gray-400 font-medium text-sm border border-gray-700 bg-gray-800 px-3 py-1 rounded-full w-fit lg:flex-shrink-0">Jun 2019 - Mar 2022 (Coord)</span>
+                            </div>
+                            <h4 class="text-lg text-gray-400 mb-4 font-medium mt-2"><i class="fa-regular fa-building mr-2"></i>Almeida Santos Advogados <span data-i18n="loc_sp" class="text-gray-500 text-sm ml-2">| São Paulo, SP</span></h4>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-justify">
+                                <li data-i18n="exp_al1">Criação de relatórios automatizados em Power BI (ETL, criação de dashboard e filtros avançados com DAX).</li>
+                                <li data-i18n="exp_al2">Automatização de processos e cálculos complexos com Linguagem M (Power Query) e VBA, mitigando erros e otimizando a rotina.</li>
+                                <li data-i18n="exp_al3">Responsável pela apuração e análise de resultados, apresentação de books corporativos, estudos de redução de custos e gestão de pessoas.</li>
+                                <li data-i18n="exp_al4">Criação de KPIs e manutenção de relatórios de acompanhamento de carteira.</li>
+                                <li data-i18n="exp_al5">Automação de rotinas de contas a receber, conciliação bancária e cobrança de inadimplentes.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="formacao" class="py-20 bg-darker/50">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="reveal">
+                    <div class="flex items-center gap-4 mb-12">
+                        <h2 data-i18n="edu_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Formação & Certificações</h2>
+                        <div class="h-px bg-gray-700 flex-grow"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                        <div>
+                            <h3 class="text-2xl font-heading font-semibold text-accent mb-6 flex items-center"><i class="fa-solid fa-graduation-cap mr-3"></i> <span data-i18n="edu_academic">Acadêmico</span></h3>
+                            <div class="space-y-6">
+                                <div class="bg-card border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
+                                    <h4 data-i18n="edu_mba" class="text-lg font-bold text-white">MBA em Controladoria e Contabilidade Estratégica</h4>
+                                    <p class="text-gray-400 mt-1">Universidade Santo Amaro - Unisa</p>
+                                    <p class="text-sm text-accent mt-2 font-medium">2019 - 2020</p>
+                                </div>
+                                <div class="bg-card border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
+                                    <h4 data-i18n="edu_fin" class="text-lg font-bold text-white">Gestão Financeira</h4>
+                                    <p class="text-gray-400 mt-1">Universidade Nove de Julho - Uninove</p>
+                                    <p class="text-sm text-gray-500 mt-2 font-medium">2015 - 2017</p>
+                                </div>
+                            </div>
+
+                            <h3 class="text-2xl font-heading font-semibold text-accent mb-6 mt-10 flex items-center"><i class="fa-solid fa-language mr-3"></i> <span data-i18n="edu_lang">Idiomas</span></h3>
+                            <div class="bg-card border border-gray-800 p-6 rounded-xl flex gap-8">
+                                <div>
+                                    <p data-i18n="lang_pt" class="font-bold text-white">Português</p>
+                                    <p data-i18n="lang_pt_lvl" class="text-gray-400 text-sm">Nativo</p>
+                                </div>
+                                <div>
+                                    <p data-i18n="lang_en" class="font-bold text-white">Inglês</p>
+                                    <p data-i18n="lang_en_lvl" class="text-gray-400 text-sm">Intermediário - Avançado</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-heading font-semibold text-accent mb-6 flex items-center"><i class="fa-solid fa-certificate mr-3"></i> <span data-i18n="edu_cert">Certificações e Cursos</span></h3>
+                            <div class="bg-card border border-gray-800 rounded-xl p-6 h-full shadow-lg">
+                                <ul class="space-y-5">
+                                    <li class="flex items-start group">
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
+                                        </div>
+                                        <div>
+                                            <p data-i18n="cert_sql" class="font-medium text-white">MCSA: Desenvolvimento de Banco de Dados de SQL 2016</p>
+                                            <p class="text-sm text-gray-500 mt-0.5">Microsoft</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
+                                        </div>
+                                        <div class="mt-1">
+                                            <p data-i18n="cert_py" class="font-medium text-white">Python com Foco em Análise de Dados</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
+                                        </div>
+                                        <div>
+                                            <p data-i18n="cert_pbi_adv" class="font-medium text-white">Power BI Avançado</p>
+                                            <p class="text-sm text-gray-500 mt-0.5">Dados Criativos</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
+                                        </div>
+                                        <div>
+                                            <p data-i18n="cert_pbi_bas" class="font-medium text-white">Power BI - Básico ao Avançado</p>
+                                            <p class="text-sm text-gray-500 mt-0.5">Udemy</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-white">HTML, CSS, JavaScript e SQL</p>
+                                            <p class="text-sm text-gray-500 mt-0.5">B7Web</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
+                                        </div>
+                                        <div>
+                                            <p data-i18n="cert_excel" class="font-medium text-white">Excel Avançado</p>
+                                            <p class="text-sm text-gray-500 mt-0.5">Fundação Bradesco</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="py-20">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="reveal">
+                    <div class="flex items-center gap-4 mb-12">
+                        <h2 data-i18n="contact_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Contato</h2>
+                        <div class="h-px bg-gray-700 flex-grow"></div>
+                    </div>
+
+                    <div class="bg-card border border-gray-800 rounded-2xl p-8 md:p-12 shadow-xl text-center relative overflow-hidden">
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-[80px] -z-0"></div>
+                        
+                        <div class="relative z-10">
+                            <h3 data-i18n="contact_subtitle" class="text-2xl font-heading font-bold text-white mb-4">Vamos conversar?</h3>
+                            <p data-i18n="contact_desc" class="text-gray-400 mb-10 max-w-2xl mx-auto text-lg">
+                                Estou sempre aberto a conversar sobre análise de dados, BI, gestão de portfólio e novas oportunidades. Sinta-se à vontade para me mandar uma mensagem por qualquer um dos canais abaixo!
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <!-- Botão Email -->
+                                <a href="mailto:ewerton.jbv@outlook.com" aria-label="Enviar email" class="group bg-dark border border-gray-700 p-6 rounded-xl hover:border-accent hover:bg-gray-800/80 transition-all shadow-lg hover:-translate-y-1">
+                                    <div class="w-14 h-14 bg-gray-800 group-hover:bg-accent rounded-full flex items-center justify-center mx-auto mb-4 text-accent group-hover:text-white transition-colors shadow-inner">
+                                        <i class="fa-solid fa-envelope text-2xl"></i>
+                                    </div>
+                                    <h4 data-i18n="contact_email" class="text-lg font-bold text-white mb-1">E-mail</h4>
+                                    <p class="text-gray-400 text-sm break-all">ewerton.jbv@outlook.com</p>
+                                </a>
+
+                                <!-- Botão WhatsApp -->
+                                <a href="https://wa.me/5511944941488" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp" class="group bg-dark border border-gray-700 p-6 rounded-xl hover:border-[#25D366] hover:bg-gray-800/80 transition-all shadow-lg hover:-translate-y-1">
+                                    <div class="w-14 h-14 bg-gray-800 group-hover:bg-[#25D366] rounded-full flex items-center justify-center mx-auto mb-4 text-[#25D366] group-hover:text-white transition-colors shadow-inner">
+                                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                    </div>
+                                    <h4 data-i18n="contact_phone" class="text-lg font-bold text-white mb-1">WhatsApp</h4>
+                                    <p class="text-gray-400 text-sm">(11) 94494-1488</p>
+                                </a>
+
+                                <!-- Botão LinkedIn -->
+                                <a href="https://www.linkedin.com/in/ewertonjbv" target="_blank" rel="noopener noreferrer" aria-label="Acessar LinkedIn" class="group bg-dark border border-gray-700 p-6 rounded-xl hover:border-[#0077b5] hover:bg-gray-800/80 transition-all shadow-lg hover:-translate-y-1">
+                                    <div class="w-14 h-14 bg-gray-800 group-hover:bg-[#0077b5] rounded-full flex items-center justify-center mx-auto mb-4 text-[#0077b5] group-hover:text-white transition-colors shadow-inner">
+                                        <i class="fa-brands fa-linkedin-in text-2xl"></i>
+                                    </div>
+                                    <h4 data-i18n="contact_linkedin" class="text-lg font-bold text-white mb-1">LinkedIn</h4>
+                                    <p class="text-gray-400 text-sm">/in/ewertonjbv</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-darker border-t border-gray-800 py-12 mt-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <p class="text-2xl font-heading font-bold text-white mb-1">Ewerton Vieira</p>
+                <p class="text-gray-400 text-sm">© <span id="year"></span> <span data-i18n="footer_rights">Todos os direitos reservados.</span></p>
+            </div>
+            
+            <div class="max-w-md text-center md:text-right">
+                <p data-i18n="footer_quote" class="text-gray-400 text-sm italic">
+                    "Tecnologia se compra, processos se desenham, mas o talento e a paixão das pessoas se conquistam."
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            pt: {
+                nav_home: "Início", nav_summary: "Resumo", nav_skills: "Habilidades", nav_case: "Case", nav_experience: "Experiência", nav_education: "Formação", nav_contact: "Contato",
+                hero_hello: "Olá, eu sou", hero_role1: "Coordenador de Portfólio", hero_role_highlight: "& Especialista em Dados",
+                hero_desc: "Transformando dados complexos em insights acionáveis que impulsionam decisões e eficiência operacional, com foco na arquitetura analítica e inovação.",
+                hero_btn_contact: "Entrar em Contato", hero_btn_linkedin: "Ver LinkedIn",
+                summary_title: "Resumo Profissional",
+                summary_p1: "Coordenador de Portfólio e Especialista em Business Intelligence com <strong>mais de 10 anos de experiência</strong> em arquitetura analítica, automação de dados e liderança técnica. Atualmente na Zurich Insurance, atuo como ponte estratégica com a alta gestão (C-Level), unindo gestão de pessoas, inteligência artificial aplicada e governança de dados para impulsionar a eficiência operacional.",
+                summary_p2: "Possuo sólido domínio em <strong>Power BI, Databricks, PySpark, Python, SQL e ecossistema Microsoft Fabric</strong>, com histórico comprovado em projetos de grande escala — como a otimização de ambientes que reduziu ciclos de fechamento de <span class='text-accent font-semibold'>20 dias para apenas 8 horas</span>. Sou apaixonado por criar soluções escaláveis, focado em UX analítico e em transformar dados complexos em decisões de alto impacto.",
+                summary_stat1: "Anos de Experiência", summary_stat2_title: "Coordenador", summary_stat2: "Portfólio & Dados", summary_stat4: "Base de Atuação",
+                skills_title: "Competências Técnicas", skills_portfolio: "Análise de Portfólio", skills_lang_title: "Linguagens", skills_aff_title: "Análise de Afinidades",
+                skills_aff1: "Gestão de Carteira", skills_aff2: "Performance de Produto", skills_aff3: "Avaliação de Riscos", skills_aff4: "Monitoramento de Sinistralidade",
+                case_title: "Case", case_subtitle: "Dashboard Estratégico de Portfólio",
+                case_desc: "Case desenvolvido para o processo seletivo da Zurich. Este painel interativo demonstra capacidades avançadas de modelagem, tratamento de dados e UI/UX aplicados ao Business Intelligence, permitindo uma análise clara e acionável dos indicadores do negócio.",
+                case_hint: "Interaja com o painel acima. Utilize o modo tela cheia no canto inferior direito do dashboard para a melhor experiência.",
+                exp_title: "Experiência Profissional", loc_sp: "| São Paulo, SP",
+                exp_zurich_role1: "Coordenador de Portfólio Afinidades", exp_zurich_area: "Gestão de Dados, IA & Estratégia", exp_zurich_date1: "Set 2026 - Presente",
+                exp_z1: "<strong class='text-gray-100'>Liderança técnica e desenvolvimento de equipe:</strong> Gestão, direcionamento e mentoria do time de analistas, impulsionando a alta performance, o refinamento técnico contínuo e um clima organizacional colaborativo.",
+                exp_z2: "<strong class='text-gray-100'>Exposição executiva e parceria estratégica:</strong> Atuação como principal ponte entre a área de Portfólio, gestores e a alta gestão. Condução de apresentações estratégicas de resultados para executivos (C-Level) e parceiros de negócio, traduzindo cenários complexos de dados em narrativas de impacto.",
+                exp_z3: "<strong class='text-gray-100'>Inteligência artificial e mitigação de riscos:</strong> Utilização diária de soluções de IA para otimização de rotinas analíticas e modelagem de cenários. Geração ágil de insights acionáveis com foco proativo na identificação de oportunidades.",
+                exp_z4: "<strong class='text-gray-100'>Arquitetura Analítica e Migração (Big Data):</strong> Liderança na estruturação de pipelines e migração de ambiente SAS para Databricks (PySpark, Python e SQL). Esse projeto reduziu o processo de fechamento de <span class='text-accent font-semibold'>20 dias para apenas 8 horas</span>, otimizando a escalabilidade do negócio.",
+                exp_z5: "<strong class='text-gray-100'>Automação e Confiabilidade de Dados:</strong> Automatização completa de relatórios, reduzindo drasticamente o tempo de apuração. A eliminação de processos manuais mitigou erros, elevou a confiabilidade dos dados e agregou alto valor estratégico.",
+                exp_z6: "<strong class='text-gray-100'>UX em dados e design de dashboards (Power BI):</strong> Foco na usabilidade e na jornada do executivo ao consumir dados. Concepção visual de dashboards intuitivos e avançados (DAX/Power Query) para facilitar a decisão por stakeholders não-técnicos.",
+                exp_z7: "<strong class='text-gray-100'>Governança de dados e segurança:</strong> Estruturação de mecanismos de visibilidade (roadmaps e pipelines) com rigor. Implementação de segurança em nível de linha (RLS), garantindo total conformidade e controle de acesso.",
+                exp_zurich_date2: "Jul 2025 - Ago 2026",
+                exp_z8: "Atuação estratégica na modernização e otimização de processos analíticos e transição de projetos SAS para Databricks (SQL e PySpark).",
+                exp_z9: "Desenvolvimento de pipelines de dados robustos e recriação de dashboards estratégicos no Power BI com análises de performance de produtos.",
+                exp_axa_date: "Out 2022 - Jul 2025",
+                exp_a1: "Desenvolvimento e implementação de dashboards interativos em Power BI para análise e gerenciamento de portfólio, otimizando a visualização de dados para a liderança.",
+                exp_a2: "Realização de processos de ETL (Extração, Transformação e Carga) utilizando SQL Server e Linguagem M (Power Query).",
+                exp_a3: "Criação de novos indicadores de acompanhamento de performance de produtos, fornecendo insights valiosos para a estratégia de negócios.",
+                exp_a4: "Manutenção e otimização em relatórios desenvolvidos em Python, assegurando a continuidade e precisão das informações.",
+                exp_a5: "Avaliação de riscos, monitoramento de sinistralidade vs. gatilhos contratuais e análises preditivas.",
+                exp_tokio_role: "Analista de Controladoria", exp_tokio_date: "Mar 2022 - Out 2022",
+                exp_t1: "Condução do ciclo completo de fechamento mensal, incluindo prévia de fechamento, DRE e indicadores de performance.",
+                exp_t2: "Automatização de processos de tratamento de dados e elaboração de relatórios utilizando Linguagem M (Power Query) e VBA, resultando em 90% de redução no tempo manual.",
+                exp_t3: "Desenvolvimento de relatórios e dashboards em Power BI para análise de resultados, melhorando a capacidade analítica da equipe.",
+                exp_t4: "Elaboração de relatórios gerenciais detalhados por regionais, sucursais e de despesas.",
+                exp_alm_role1: "Coordenador de Planejamento e Controle (I e II)", exp_alm_role2: "Analista de Planejamento e Controle", exp_alm_date2: "(Fev 2019 - Mai 2019)",
+                exp_alm_role3: "Assistente / Auxiliar Financeiro", exp_alm_date3: "(Ago 2017 - Fev 2019)", exp_alm_date1: "Jun 2019 - Mar 2022 (Coord)",
+                exp_al1: "Criação de relatórios automatizados em Power BI (ETL, criação de dashboard e filtros avançados com DAX).",
+                exp_al2: "Automatização de processos e cálculos complexos com Linguagem M (Power Query) e VBA, mitigando erros e otimizando a rotina.",
+                exp_al3: "Responsável pela apuração e análise de resultados, apresentação de books corporativos, estudos de redução de custos e gestão de pessoas.",
+                exp_al4: "Criação de KPIs e manutenção de relatórios de acompanhamento de carteira.",
+                exp_al5: "Automação de rotinas de contas a receber, conciliação bancária e cobrança de inadimplentes.",
+                edu_title: "Formação & Certificações", edu_academic: "Acadêmico", edu_mba: "MBA em Controladoria e Contabilidade Estratégica", edu_fin: "Gestão Financeira",
+                edu_lang: "Idiomas", lang_pt: "Português", lang_pt_lvl: "Nativo", lang_en: "Inglês", lang_en_lvl: "Intermediário - Avançado",
+                edu_cert: "Certificações e Cursos", cert_sql: "MCSA: Desenvolvimento de Banco de Dados de SQL 2016", cert_py: "Python com Foco em Análise de Dados",
+                cert_pbi_adv: "Power BI Avançado", cert_pbi_bas: "Power BI - Básico ao Avançado", cert_excel: "Excel Avançado", 
+                footer_rights: "Todos os direitos reservados.", 
+                footer_quote: `"Tecnologia se compra, processos se desenham, mas o talento e a paixão das pessoas se conquistam."`,
+                contact_title: "Contato", contact_subtitle: "Vamos conversar?", contact_desc: "Estou sempre aberto a conversar sobre análise de dados, BI, gestão de portfólio e novas oportunidades. Sinta-se à vontade para me mandar uma mensagem por qualquer um dos canais abaixo!", contact_email: "E-mail", contact_phone: "WhatsApp", contact_linkedin: "LinkedIn"
+            },
+            en: {
+                nav_home: "Home", nav_summary: "Summary", nav_skills: "Skills", nav_case: "Case", nav_experience: "Experience", nav_education: "Education", nav_contact: "Contact",
+                hero_hello: "Hello, I am", hero_role1: "Portfolio Coordinator", hero_role_highlight: "& Data Specialist",
+                hero_desc: "Transforming complex data into actionable insights that drive decisions and operational efficiency, with a focus on analytical architecture and innovation.",
+                hero_btn_contact: "Contact Me", hero_btn_linkedin: "View LinkedIn",
+                summary_title: "Professional Summary",
+                summary_p1: "Portfolio Coordinator and Business Intelligence Specialist with <strong>over 10 years of experience</strong> in analytical architecture, data automation, and technical leadership. Currently at Zurich Insurance, I act as a strategic bridge with top management (C-Level), uniting people management, applied artificial intelligence, and data governance to drive operational efficiency.",
+                summary_p2: "I have solid expertise in <strong>Power BI, Databricks, PySpark, Python, SQL, and the Microsoft Fabric ecosystem</strong>, with a proven track record in large-scale projects — such as environment optimization that reduced closing cycles from <span class='text-accent font-semibold'>20 days to just 8 hours</span>. I am passionate about creating scalable solutions, focused on analytical UX and transforming complex data into high-impact decisions.",
+                summary_stat1: "Years of Experience", summary_stat2_title: "Coordinator", summary_stat2: "Portfolio & Data", summary_stat4: "Location",
+                skills_title: "Technical Skills", skills_portfolio: "Portfolio Analysis", skills_lang_title: "Languages", skills_aff_title: "Affinity Analysis",
+                skills_aff1: "Portfolio Management", skills_aff2: "Product Performance", skills_aff3: "Risk Assessment", skills_aff4: "Claims Monitoring",
+                case_title: "Case", case_subtitle: "Strategic Portfolio Dashboard",
+                case_desc: "Case developed for the Zurich selection process. This interactive dashboard demonstrates advanced modeling, data processing, and UI/UX capabilities applied to BI, allowing a clear and actionable analysis of business indicators.",
+                case_hint: "Interact with the dashboard above. Use the full-screen mode in the bottom right corner for the best experience.",
+                exp_title: "Professional Experience", loc_sp: "| São Paulo, BR",
+                exp_zurich_role1: "Affinity Portfolio Coordinator", exp_zurich_area: "Data Management, AI & Strategy", exp_zurich_date1: "Sep 2026 - Present",
+                exp_z1: "<strong class='text-gray-100'>Technical leadership and team development:</strong> Management, guidance, and mentoring of the analysts team, driving high performance, continuous technical refinement, and a collaborative environment.",
+                exp_z2: "<strong class='text-gray-100'>Executive exposure and strategic partnership:</strong> Acting as the main bridge between the Portfolio area, managers, and top management. Leading strategic results presentations for C-Level executives and business partners.",
+                exp_z3: "<strong class='text-gray-100'>Artificial Intelligence and risk mitigation:</strong> Daily use of AI solutions to optimize analytical routines and scenario modeling. Agile generation of actionable insights proactively focusing on identifying opportunities.",
+                exp_z4: "<strong class='text-gray-100'>Analytical Architecture and Migration (Big Data):</strong> Leadership in structuring pipelines and migrating from SAS to Databricks (PySpark, Python, and SQL). This project reduced the closing process from <span class='text-accent font-semibold'>20 days to just 8 hours</span>, optimizing scalability.",
+                exp_z5: "<strong class='text-gray-100'>Automation and Data Reliability:</strong> Full automation of reporting, drastically reducing calculation time. Eliminating manual processes mitigated errors, elevated data reliability, and added high strategic value.",
+                exp_z6: "<strong class='text-gray-100'>Data UX and dashboard design (Power BI):</strong> Focus on usability and the executive's journey when consuming data. Visual design of intuitive and advanced dashboards (DAX/Power Query) to facilitate decision-making for non-technical stakeholders.",
+                exp_z7: "<strong class='text-gray-100'>Data governance and security:</strong> Structuring visibility mechanisms (roadmaps and pipelines) with strict governance. Implementation of Row-Level Security (RLS), ensuring full compliance and access control.",
+                exp_zurich_date2: "Jul 2025 - Aug 2026",
+                exp_z8: "Strategic role in modernizing and optimizing analytical processes and transitioning SAS projects to Databricks (SQL and PySpark).",
+                exp_z9: "Development of robust data pipelines and recreation of strategic dashboards in Power BI analyzing product performance.",
+                exp_axa_date: "Oct 2022 - Jul 2025",
+                exp_a1: "Development and implementation of interactive Power BI dashboards for portfolio analysis and management, optimizing data visualization for leadership.",
+                exp_a2: "Execution of ETL (Extract, Transform, Load) processes using SQL Server and M Language (Power Query).",
+                exp_a3: "Creation of new tracking indicators for product performance, providing valuable insights for business strategy.",
+                exp_a4: "Maintenance and optimization of reports developed in Python, ensuring information continuity and accuracy.",
+                exp_a5: "Risk assessment, claims monitoring vs. contractual triggers, and predictive analytics.",
+                exp_tokio_role: "Controllership Analyst", exp_tokio_date: "Mar 2022 - Oct 2022",
+                exp_t1: "Conducted the full monthly closing cycle, including closing previews, P&L, and performance indicators.",
+                exp_t2: "Automated data processing and report generation using M Language (Power Query) and VBA, resulting in a 90% reduction in manual time.",
+                exp_t3: "Developed reports and dashboards in Power BI for results analysis, improving the team's analytical capacity.",
+                exp_t4: "Prepared detailed management reports by region, branch, and expenses.",
+                exp_alm_role1: "Planning and Control Coordinator (I and II)", exp_alm_role2: "Planning and Control Analyst", exp_alm_date2: "(Feb 2019 - May 2019)",
+                exp_alm_role3: "Financial Assistant", exp_alm_date3: "(Aug 2017 - Feb 2019)", exp_alm_date1: "Jun 2019 - Mar 2022 (Coord)",
+                exp_al1: "Created automated reports in Power BI (ETL, dashboard creation, and advanced filters with DAX).",
+                exp_al2: "Automated complex processes and calculations with M Language (Power Query) and VBA, mitigating errors.",
+                exp_al3: "Responsible for results calculation and analysis, presentation of corporate books, cost reduction studies, and people management.",
+                exp_al4: "Created KPIs and maintained portfolio tracking reports.",
+                exp_al5: "Automated accounts receivable routines, bank reconciliation, and default collections.",
+                edu_title: "Education & Certifications", edu_academic: "Academic", edu_mba: "MBA in Strategic Controllership and Accounting", edu_fin: "Financial Management",
+                edu_lang: "Languages", lang_pt: "Portuguese", lang_pt_lvl: "Native", lang_en: "English", lang_en_lvl: "Intermediate - Advanced",
+                edu_cert: "Certifications and Courses", cert_sql: "MCSA: SQL 2016 Database Development", cert_py: "Python Focused on Data Analysis",
+                cert_pbi_adv: "Advanced Power BI", cert_pbi_bas: "Power BI - Basic to Advanced", cert_excel: "Advanced Excel", 
+                footer_rights: "All rights reserved.", 
+                footer_quote: `"Technology can be bought, processes can be designed, but people's talent and passion must be won over."`,
+                contact_title: "Contact", contact_subtitle: "Let's Talk?", contact_desc: "I am always open to discussing data analysis, BI, portfolio management, and new opportunities. Feel free to send me a message through any of the channels below!", contact_email: "Email", contact_phone: "WhatsApp", contact_linkedin: "LinkedIn"
+            },
+            es: {
+                nav_home: "Inicio", nav_summary: "Resumen", nav_skills: "Habilidades", nav_case: "Caso", nav_experience: "Experiencia", nav_education: "Educación", nav_contact: "Contacto",
+                hero_hello: "Hola, soy", hero_role1: "Coordinador de Portafolio", hero_role_highlight: "& Especialista en Datos",
+                hero_desc: "Transformando datos complejos en insights procesables que impulsan decisiones y eficiencia operativa, con enfoque en la arquitectura analítica e innovación.",
+                hero_btn_contact: "Contáctame", hero_btn_linkedin: "Ver LinkedIn",
+                summary_title: "Resumen Profesional",
+                summary_p1: "Coordinador de Portfólio y Especialista en Business Intelligence con <strong>más de 10 años de experiencia</strong> en arquitectura analítica, automatización de datos y liderazgo técnico. Actualmente en Zurich Insurance, actúo como puente estratégico con la alta dirección (C-Level), uniendo gestión de personas, inteligencia artificial aplicada y gobernanza de datos para impulsar la eficiencia operativa.",
+                summary_p2: "Poseo sólido dominio en <strong>Power BI, Databricks, PySpark, Python, SQL y el ecosistema Microsoft Fabric</strong>, con un historial comprobado en proyectos a gran escala — como la optimización de entornos que redujo los ciclos de cierre de <span class='text-accent font-semibold'>20 días a solo 8 horas</span>. Me apasiona crear soluciones escalables, enfocado en UX analítico y en transformar datos complejos en decisiones de alto impacto.",
+                summary_stat1: "Años de Experiencia", summary_stat2_title: "Coordinador", summary_stat2: "Portafolio y Datos", summary_stat4: "Ubicación",
+                skills_title: "Competencias Técnicas", skills_portfolio: "Análisis de Cartera", skills_lang_title: "Idiomas", skills_aff_title: "Análisis de Afinidades",
+                skills_aff1: "Gestión de Cartera", skills_aff2: "Rendimiento de Producto", skills_aff3: "Evaluación de Riesgos", skills_aff4: "Monitoreo de Siniestralidad",
+                case_title: "Caso de Éxito", case_subtitle: "Dashboard Estratégico de Cartera",
+                case_desc: "Case desarrollado para el proceso de selección de Zurich. Este panel interactivo demuestra capacidades avanzadas de modelado, procesamiento de datos y UI/UX aplicadas a BI, permitiendo un análisis claro y procesable de los indicadores comerciales.",
+                case_hint: "Interactúa con el panel de arriba. Usa el modo de pantalla completa en la esquina inferior derecha para una mejor experiencia.",
+                exp_title: "Experiencia Profesional", loc_sp: "| São Paulo, BR",
+                exp_zurich_role1: "Coordinador de Portafolio Afinidades", exp_zurich_area: "Gestión de Datos, IA y Estrategia", exp_zurich_date1: "Sep 2026 - Presente",
+                exp_z1: "<strong class='text-gray-100'>Liderazgo técnico y desarrollo de equipo:</strong> Gestión, orientación y tutoría del equipo de analistas, impulsando el alto rendimiento, el refinamiento técnico continuo y un entorno colaborativo.",
+                exp_z2: "<strong class='text-gray-100'>Exposición ejecutiva y asociación estratégica:</strong> Actuando como puente principal entre el área de Portfólio, gerentes y alta dirección. Liderar presentaciones de resultados estratégicos para ejecutivos (C-Level).",
+                exp_z3: "<strong class='text-gray-100'>Inteligencia Artificial y mitigación de riesgos:</strong> Uso diario de soluciones de IA para optimizar rutinas analíticas y modelado de escenarios. Generación ágil de insights procesables.",
+                exp_z4: "<strong class='text-gray-100'>Arquitectura Analítica y Migración (Big Data):</strong> Liderazgo en la estructuración de pipelines y migración de SAS a Databricks (PySpark, Python y SQL). Este proyecto redujo el proceso de cierre de <span class='text-accent font-semibold'>20 días a solo 8 horas</span>, optimizando la escalabilidad.",
+                exp_z5: "<strong class='text-gray-100'>Automatización y Confiabilidad de Datos:</strong> Automatización total de reportes. La eliminación de procesos manuales mitigó errores operativos, redujo tiempos de entrega y elevó el valor estratégico.",
+                exp_z6: "<strong class='text-gray-100'>UX en datos y diseño de dashboards:</strong> Enfoque en la usabilidad y el viaje del ejecutivo al consumir datos. Diseño visual de paneles intuitivos (DAX/Power Query) para facilitar decisiones.",
+                exp_z7: "<strong class='text-gray-100'>Gobernanza de datos y seguridad:</strong> Estructuración de mecanismos de visibilidade con estricta gobernanza. Implementación de seguridad a nivel de fila (RLS) para control de accesos.",
+                exp_zurich_date2: "Jul 2025 - Ago 2026",
+                exp_z8: "Papel estratégico en la modernización y optimización de procesos analíticos y transición de proyectos SAS a Databricks (SQL y PySpark).",
+                exp_z9: "Desarrollo de pipelines de datos robustos y recreación de dashboards estratégicos en Power BI analizando el rendimiento de productos.",
+                exp_axa_date: "Oct 2022 - Jul 2025",
+                exp_a1: "Desarrollo e implementación de dashboards interactivos en Power BI para análisis y gestión de carteras, optimizando la visualización de datos.",
+                exp_a2: "Ejecución de procesos ETL utilizando SQL Server y Lenguaje M (Power Query).",
+                exp_a3: "Creación de nuevos indicadores de seguimiento para el rendimiento de productos.",
+                exp_a4: "Mantenimiento y optimización de reportes desarrollados en Python.",
+                exp_a5: "Evaluación de riesgos, monitoreo de siniestralidad vs. gatillos contractuales y análisis predictivos.",
+                exp_tokio_role: "Analista de Controladuría", exp_tokio_date: "Mar 2022 - Oct 2022",
+                exp_t1: "Conducción del ciclo completo de cierre mensual, incluyendo previas de cierre, P&L e indicadores de rendimiento.",
+                exp_t2: "Automatización del procesamiento de datos usando Lenguaje M y VBA, resultando en un 90% de reducción del tiempo manual.",
+                exp_t3: "Desarrollo de reportes y dashboards en Power BI para análisis de resultados.",
+                exp_t4: "Elaboración de reportes gerenciales detallados por región, sucursal y gastos.",
+                exp_alm_role1: "Coordinador de Planificación y Control", exp_alm_role2: "Analista de Planificación y Control", exp_alm_date2: "(Feb 2019 - May 2019)",
+                exp_alm_role3: "Asistente Financiero", exp_alm_date3: "(Ago 2017 - Feb 2019)", exp_alm_date1: "Jun 2019 - Mar 2022 (Coord)",
+                exp_al1: "Creación de reportes automatizados en Power BI (ETL, creación de dashboard y filtros avanzados con DAX).",
+                exp_al2: "Automatización de procesos complejos y cálculos con Lenguaje M (Power Query) y VBA.",
+                exp_al3: "Responsable del cálculo y análisis de resultados, presentación de libros corporativos, estudios de reducción de costos y gestión de personas.",
+                exp_al4: "Creación de KPIs y mantenimiento de reportes de seguimiento de cartera.",
+                exp_al5: "Automatización de rutinas de cuentas por cobrar, conciliación bancaria y cobranza.",
+                edu_title: "Educación y Certificaciones", edu_academic: "Académico", edu_mba: "MBA en Controladuría Estratégica y Contabilidade", edu_fin: "Gestão Financeira",
+                edu_lang: "Idiomas", lang_pt: "Portugués", lang_pt_lvl: "Nativo", lang_en: "Inglés", lang_en_lvl: "Intermedio - Avanzado",
+                edu_cert: "Certificaciones y Cursos", cert_sql: "MCSA: Desarrollo de Base de Datos SQL 2016", cert_py: "Python enfocado en Análisis de Datos",
+                cert_pbi_adv: "Power BI Avanzado", cert_pbi_bas: "Power BI - Básico a Avanzado", cert_excel: "Excel Avanzado", 
+                footer_rights: "Todos los derechos reservados.", 
+                footer_quote: `"La tecnología se compra, los procesos se diseñan, pero el talento y la pasión de las personas se conquistan."`,
+                contact_title: "Contacto", contact_subtitle: "¿Hablamos?", contact_desc: "Siempre estoy abierto a hablar sobre análisis de datos, BI, gestión de carteras y nuevas oportunidades. ¡No dudes en enviarme un mensaje por cualquiera de los canales a continuación!", contact_email: "Correo", contact_phone: "WhatsApp", contact_linkedin: "LinkedIn"
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('portfolioLang', lang);
+
+            document.querySelectorAll('button[id^="btn-"]').forEach(btn => {
+                btn.classList.remove('lang-active', 'text-white');
+                btn.classList.add('text-gray-400', 'hover:bg-gray-700');
+            });
+            const activeBtn = document.getElementById(`btn-${lang}`);
+            if(activeBtn) {
+                activeBtn.classList.add('lang-active', 'text-white');
+                activeBtn.classList.remove('text-gray-400', 'hover:bg-gray-700');
+            }
+
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('portfolioLang') || 'pt';
+            setLanguage(savedLang);
+
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Menu Mobile Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const menuLinks = menu.querySelectorAll('a');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                const isExpanded = !menu.classList.contains('hidden');
+                btn.setAttribute('aria-expanded', isExpanded);
+            });
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    btn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Reveal on Scroll
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => { revealOnScroll.observe(reveal); });
+
+            // Scroll Spy
+            const sections = document.querySelectorAll('section');
+            const navLinksDesktop = document.querySelectorAll('header nav ul li a');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinksDesktop.forEach(link => {
+                    link.classList.remove('text-accent');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('text-accent');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
