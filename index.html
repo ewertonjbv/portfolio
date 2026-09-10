@@ -17,7 +17,6 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind Configuração Customizada -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -86,16 +85,16 @@
 <body class="antialiased relative bg-grid">
 
     <header class="fixed w-full top-0 z-50 glass">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <a href="#inicio" class="flex-shrink-0 font-heading font-bold text-2xl tracking-tighter text-white hover:opacity-80 transition-opacity" aria-label="Voltar ao início">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <a href="#inicio" class="flex-shrink-0 font-heading font-bold text-lg sm:text-2xl tracking-tighter text-white hover:opacity-80 transition-opacity" aria-label="Voltar ao início">
                     Ewerton<span class="text-accent">.</span>
                 </a>
                 
-                <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2 sm:gap-4">
                     <!-- Desktop Nav -->
                     <nav class="hidden md:block">
-                        <ul class="flex space-x-8 items-center">
+                        <ul class="flex space-x-6 lg:space-x-8 items-center">
                             <li><a href="#inicio" data-i18n="nav_home" class="text-sm font-medium hover:text-accent transition-colors">Início</a></li>
                             <li><a href="#resumo" data-i18n="nav_summary" class="text-sm font-medium hover:text-accent transition-colors">Resumo</a></li>
                             <li><a href="#habilidades" data-i18n="nav_skills" class="text-sm font-medium hover:text-accent transition-colors">Habilidades</a></li>
@@ -107,25 +106,25 @@
                     </nav>
 
                     <!-- Language Switcher with Flags -->
-                    <div class="flex items-center gap-1 border border-gray-700 rounded-md p-1.5 bg-gray-800/50">
-                        <button onclick="setLanguage('pt')" id="btn-pt" class="flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded transition-colors lang-active text-white" aria-label="Mudar para Português">
-                            <svg class="w-4 h-3 rounded-[2px] shadow-sm object-cover" viewBox="0 0 720 504" xmlns="http://www.w3.org/2000/svg"><path fill="#009b3a" d="M0 0h720v504H0z"/><path fill="#fedf00" d="m360 30 330 222-330 222L30 252z"/><circle fill="#002776" cx="360" cy="252" r="102"/><path fill="#fff" d="M268 244h184v16H268z"/></svg>
+                    <div class="flex items-center gap-1 border border-gray-700 rounded-md p-1 bg-gray-800/50">
+                        <button onclick="setLanguage('pt')" id="btn-pt" class="flex items-center gap-1 text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-1 rounded transition-colors lang-active text-white" aria-label="Mudar para Português">
+                            <svg class="w-3.5 h-2.5 rounded-[2px] shadow-sm object-cover" viewBox="0 0 720 504" xmlns="http://www.w3.org/2000/svg"><path fill="#009b3a" d="M0 0h720v504H0z"/><path fill="#fedf00" d="m360 30 330 222-330 222L30 252z"/><circle fill="#002776" cx="360" cy="252" r="102"/><path fill="#fff" d="M268 244h184v16H268z"/></svg>
                             <span>PT</span>
                         </button>
-                        <button onclick="setLanguage('en')" id="btn-en" class="flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded hover:bg-gray-700 transition-colors text-gray-400" aria-label="Switch to English">
-                            <svg class="w-4 h-3 rounded-[2px] shadow-sm object-cover" viewBox="0 0 50 30" xmlns="http://www.w3.org/2000/svg"><path fill="#bd2228" d="M0 0h50v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l50 30m0-30L0 30"/><path stroke="#002b66" stroke-width="4" d="M0 0l50 30m0-30L0 30"/><path stroke="#fff" stroke-width="10" d="M25 0v30M0 15h50"/><path stroke="#bd2228" stroke-width="6" d="M25 0v30M0 15h50"/></svg>
+                        <button onclick="setLanguage('en')" id="btn-en" class="flex items-center gap-1 text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-1 rounded hover:bg-gray-700 transition-colors text-gray-400" aria-label="Switch to English">
+                            <svg class="w-3.5 h-2.5 rounded-[2px] shadow-sm object-cover" viewBox="0 0 50 30" xmlns="http://www.w3.org/2000/svg"><path fill="#bd2228" d="M0 0h50v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l50 30m0-30L0 30"/><path stroke="#002b66" stroke-width="4" d="M0 0l50 30m0-30L0 30"/><path stroke="#fff" stroke-width="10" d="M25 0v30M0 15h50"/><path stroke="#bd2228" stroke-width="6" d="M25 0v30M0 15h50"/></svg>
                             <span>EN</span>
                         </button>
-                        <button onclick="setLanguage('es')" id="btn-es" class="flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded hover:bg-gray-700 transition-colors text-gray-400" aria-label="Cambiar a Español">
-                            <svg class="w-4 h-3 rounded-[2px] shadow-sm object-cover" viewBox="0 0 750 500" xmlns="http://www.w3.org/2000/svg"><path fill="#aa151b" d="M0 0h750v500H0z"/><path fill="#f1bf00" d="M0 125h750v250H0z"/></svg>
+                        <button onclick="setLanguage('es')" id="btn-es" class="flex items-center gap-1 text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-1 rounded hover:bg-gray-700 transition-colors text-gray-400" aria-label="Cambiar a Español">
+                            <svg class="w-3.5 h-2.5 rounded-[2px] shadow-sm object-cover" viewBox="0 0 750 500" xmlns="http://www.w3.org/2000/svg"><path fill="#aa151b" d="M0 0h750v500H0z"/><path fill="#f1bf00" d="M0 125h750v250H0z"/></svg>
                             <span>ES</span>
                         </button>
                     </div>
 
                     <!-- Mobile Menu Button -->
-                    <div class="md:hidden ml-2">
-                        <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2" aria-label="Abrir menu de navegação">
-                            <i class="fa-solid fa-bars text-2xl"></i>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-1.5" aria-label="Abrir menu de navegação">
+                            <i class="fa-solid fa-bars text-lg"></i>
                         </button>
                     </div>
                 </div>
@@ -134,44 +133,44 @@
 
         <!-- Mobile Nav Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-card border-b border-gray-800 shadow-xl absolute w-full">
-            <ul class="px-4 pt-2 pb-6 space-y-2 sm:px-3 text-center">
-                <li><a href="#inicio" data-i18n="nav_home" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Início</a></li>
-                <li><a href="#resumo" data-i18n="nav_summary" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Resumo</a></li>
-                <li><a href="#habilidades" data-i18n="nav_skills" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Habilidades</a></li>
-                <li><a href="#projetos" data-i18n="nav_case" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Case</a></li>
-                <li><a href="#experiencia" data-i18n="nav_experience" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Experiência</a></li>
-                <li><a href="#formacao" data-i18n="nav_education" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Formação</a></li>
-                <li><a href="#contato" data-i18n="nav_contact" class="block px-3 py-3 text-base font-medium hover:text-accent hover:bg-gray-800 rounded-md">Contato</a></li>
+            <ul class="px-4 pt-2 pb-6 space-y-2 text-center">
+                <li><a href="#inicio" data-i18n="nav_home" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Início</a></li>
+                <li><a href="#resumo" data-i18n="nav_summary" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Resumo</a></li>
+                <li><a href="#habilidades" data-i18n="nav_skills" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Habilidades</a></li>
+                <li><a href="#projetos" data-i18n="nav_case" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Case</a></li>
+                <li><a href="#experiencia" data-i18n="nav_experience" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Experiência</a></li>
+                <li><a href="#formacao" data-i18n="nav_education" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Formação</a></li>
+                <li><a href="#contato" data-i18n="nav_contact" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Contato</a></li>
             </ul>
         </div>
     </header>
 
     <main>
-        <section id="inicio" class="pt-32 pb-20 lg:pt-48 lg:pb-32 flex items-center min-h-screen relative overflow-hidden">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px] -z-10"></div>
+        <section id="inicio" class="pt-24 pb-12 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-28 flex items-center min-h-screen relative overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-accent/20 rounded-full blur-[90px] sm:blur-[120px] -z-10"></div>
             
-            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
                 <div class="text-center max-w-4xl mx-auto reveal">
-                    <div class="relative w-36 h-36 md:w-44 md:h-44 mx-auto mb-8">
+                    <div class="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-5 sm:mb-7">
                         <div class="absolute inset-0 bg-accent rounded-full blur-md opacity-40 animate-pulse"></div>
                         <img src="img/perfil.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e293b/06b6d4?text=EV'" alt="Foto de Ewerton Vieira" class="relative w-full h-full object-cover object-center rounded-full border-4 border-card shadow-2xl z-10">
                     </div>
                     
-                    <p data-i18n="hero_hello" class="text-accent font-semibold tracking-wide uppercase text-sm mb-4">Olá, eu sou</p>
-                    <h1 class="text-5xl md:text-7xl font-heading font-extrabold text-white mb-6 tracking-tight">
+                    <p data-i18n="hero_hello" class="text-accent font-semibold tracking-wide uppercase text-xs sm:text-sm mb-2 sm:mb-3">Olá, eu sou</p>
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl font-heading font-extrabold text-white mb-3 sm:mb-5 tracking-tight px-1">
                         Ewerton Vieira
                     </h1>
-                    <h2 class="text-2xl md:text-3xl font-heading font-bold text-gray-400 mb-8">
-                        <span data-i18n="hero_role1">Coordenador de Portfólio</span> <span class="text-gradient" data-i18n="hero_role_highlight">& Especialista em Dados</span>
+                    <h2 class="text-base sm:text-xl md:text-2xl font-heading font-bold text-gray-300 mb-5 sm:mb-7 px-2 leading-snug">
+                        <span data-i18n="hero_role1">Coordenador de Portfólio</span> <span class="text-gradient block sm:inline mt-1 sm:mt-0" data-i18n="hero_role_highlight">& Especialista em Dados</span>
                     </h2>
-                    <p data-i18n="hero_desc" class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    <p data-i18n="hero_desc" class="text-sm sm:text-base md:text-lg text-gray-400 mb-7 sm:mb-9 max-w-2xl mx-auto leading-relaxed px-2">
                         Transformando dados complexos em insights acionáveis que impulsionam decisões e eficiência operacional, com foco na arquitetura analítica e inovação.
                     </p>
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a href="#contato" class="w-full sm:w-auto px-8 py-3 rounded-full bg-accent hover:bg-accentHover text-white font-medium transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]">
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4 sm:px-0">
+                        <a href="#contato" class="w-full sm:w-auto px-7 py-3 rounded-full bg-accent hover:bg-accentHover text-white font-medium transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] text-sm sm:text-base text-center">
                             <i class="fa-regular fa-envelope mr-2"></i> <span data-i18n="hero_btn_contact">Entrar em Contato</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/ewertonjbv" target="_blank" rel="noopener noreferrer" aria-label="Acessar perfil do LinkedIn" class="w-full sm:w-auto px-8 py-3 rounded-full border border-gray-600 hover:border-white hover:text-white transition-all bg-card/50 backdrop-blur-sm text-gray-300">
+                        <a href="https://www.linkedin.com/in/ewertonjbv" target="_blank" rel="noopener noreferrer" aria-label="Acessar perfil do LinkedIn" class="w-full sm:w-auto px-7 py-3 rounded-full border border-gray-600 hover:border-white hover:text-white transition-all bg-card/50 backdrop-blur-sm text-gray-300 text-sm sm:text-base text-center">
                             <i class="fa-brands fa-linkedin mr-2"></i> <span data-i18n="hero_btn_linkedin">Ver LinkedIn</span>
                         </a>
                     </div>
@@ -179,18 +178,18 @@
             </div>
         </section>
 
-        <section id="resumo" class="py-20 bg-darker/50">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="resumo" class="py-14 sm:py-20 bg-darker/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="reveal">
-                    <div class="flex items-center gap-4 mb-12">
-                        <h2 data-i18n="summary_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Resumo Profissional</h2>
+                    <div class="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-10">
+                        <h2 data-i18n="summary_title" class="text-xl sm:text-3xl md:text-4xl font-heading font-bold text-white whitespace-nowrap">Resumo Profissional</h2>
                         <div class="h-px bg-gray-700 flex-grow"></div>
                     </div>
                     
-                    <div class="bg-card border border-gray-800 rounded-2xl p-8 md:p-10 shadow-xl relative overflow-hidden">
+                    <div class="bg-card border border-gray-800 rounded-2xl p-5 sm:p-8 md:p-10 shadow-xl relative overflow-hidden">
                         <div class="absolute top-0 right-0 p-32 bg-accent/5 rounded-full blur-[80px] -mr-16 -mt-16 z-0"></div>
                         
-                        <div class="relative z-10 text-lg leading-relaxed text-gray-300 space-y-6">
+                        <div class="relative z-10 text-sm sm:text-base md:text-lg leading-relaxed text-gray-300 space-y-4">
                             <p data-i18n="summary_p1">
                                 Coordenador de Portfólio e Especialista em Business Intelligence com <strong>mais de 10 anos de experiência</strong> em arquitetura analítica, automação de dados e liderança técnica. Atualmente na Zurich Insurance, atuo como ponte estratégica com a alta gestão (C-Level), unindo gestão de pessoas, inteligência artificial aplicada e governança de dados para impulsionar a eficiência operacional.
                             </p>
@@ -199,22 +198,22 @@
                             </p>
                         </div>
                         
-                        <div class="mt-8 pt-8 border-t border-gray-700 grid grid-cols-2 md:grid-cols-4 gap-6 text-center relative z-10">
+                        <div class="mt-6 pt-6 sm:mt-8 sm:pt-8 border-t border-gray-700 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center relative z-10">
                             <div>
-                                <h4 class="text-3xl font-heading font-bold text-accent">+10</h4>
-                                <p data-i18n="summary_stat1" class="text-sm text-gray-400 mt-1">Anos de Experiência</p>
+                                <h4 class="text-2xl sm:text-3xl font-heading font-bold text-accent">+10</h4>
+                                <p data-i18n="summary_stat1" class="text-xs sm:text-sm text-gray-400 mt-1">Anos de Experiência</p>
                             </div>
                             <div>
-                                <h4 data-i18n="summary_stat2_title" class="text-3xl font-heading font-bold text-accent">Coordenador</h4>
-                                <p data-i18n="summary_stat2" class="text-sm text-gray-400 mt-1">Portfólio & Dados</p>
+                                <h4 data-i18n="summary_stat2_title" class="text-2xl sm:text-3xl font-heading font-bold text-accent">Gestor</h4>
+                                <p data-i18n="summary_stat2" class="text-xs sm:text-sm text-gray-400 mt-1">Portfólio & Dados</p>
                             </div>
                             <div>
-                                <h4 class="text-3xl font-heading font-bold text-accent">Big Data</h4>
-                                <p class="text-sm text-gray-400 mt-1">Databricks & PySpark</p>
+                                <h4 class="text-2xl sm:text-3xl font-heading font-bold text-accent">Big Data</h4>
+                                <p class="text-xs sm:text-sm text-gray-400 mt-1">Databricks & PySpark</p>
                             </div>
                             <div>
-                                <h4 class="text-3xl font-heading font-bold text-accent">SP</h4>
-                                <p data-i18n="summary_stat4" class="text-sm text-gray-400 mt-1">Base de Atuação</p>
+                                <h4 class="text-2xl sm:text-3xl font-heading font-bold text-accent">SP</h4>
+                                <p data-i18n="summary_stat4" class="text-xs sm:text-sm text-gray-400 mt-1">Base de Atuação</p>
                             </div>
                         </div>
                     </div>
@@ -222,22 +221,22 @@
             </div>
         </section>
 
-        <section id="habilidades" class="py-20">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="habilidades" class="py-14 sm:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="reveal">
-                    <div class="flex items-center gap-4 mb-12">
-                        <h2 data-i18n="skills_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Competências Técnicas</h2>
+                    <div class="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-10">
+                        <h2 data-i18n="skills_title" class="text-xl sm:text-3xl md:text-4xl font-heading font-bold text-white whitespace-nowrap">Competências Técnicas</h2>
                         <div class="h-px bg-gray-700 flex-grow"></div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
                         <!-- Card 1 -->
-                        <div class="bg-card border border-gray-800 rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 hover:border-accent group">
-                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-chart-pie text-xl"></i>
+                        <div class="bg-card border border-gray-800 rounded-2xl p-5 sm:p-6 hover:-translate-y-1 transition-transform duration-300 hover:border-accent group">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-4 sm:mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-chart-pie text-lg sm:text-xl"></i>
                             </div>
-                            <h3 class="text-xl font-heading font-bold text-white mb-4">Business Intelligence</h3>
-                            <ul class="space-y-2 text-gray-400">
+                            <h3 class="text-base sm:text-xl font-heading font-bold text-white mb-3 sm:mb-4">Business Intelligence</h3>
+                            <ul class="space-y-2 text-gray-400 text-xs sm:text-sm md:text-base">
                                 <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> Power BI</li>
                                 <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> Microsoft Fabric</li>
                                 <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> Data Visualization</li>
@@ -246,12 +245,12 @@
                         </div>
 
                         <!-- Card 2 -->
-                        <div class="bg-card border border-gray-800 rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 hover:border-accent group">
-                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-database text-xl"></i>
+                        <div class="bg-card border border-gray-800 rounded-2xl p-5 sm:p-6 hover:-translate-y-1 transition-transform duration-300 hover:border-accent group">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-4 sm:mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-database text-lg sm:text-xl"></i>
                             </div>
-                            <h3 class="text-xl font-heading font-bold text-white mb-4">Data Platforms & ETL</h3>
-                            <ul class="space-y-2 text-gray-400">
+                            <h3 class="text-base sm:text-xl font-heading font-bold text-white mb-3 sm:mb-4">Data Platforms & ETL</h3>
+                            <ul class="space-y-2 text-gray-400 text-xs sm:text-sm md:text-base">
                                 <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> Databricks</li>
                                 <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> SQL Server</li>
                                 <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> Power Query (M)</li>
@@ -260,12 +259,12 @@
                         </div>
 
                         <!-- Card 3 -->
-                        <div class="bg-card border border-gray-800 rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 hover:border-accent group">
-                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-code text-xl"></i>
+                        <div class="bg-card border border-gray-800 rounded-2xl p-5 sm:p-6 hover:-translate-y-1 transition-transform duration-300 hover:border-accent group">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-4 sm:mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-code text-lg sm:text-xl"></i>
                             </div>
-                            <h3 data-i18n="skills_lang_title" class="text-xl font-heading font-bold text-white mb-4">Linguagens</h3>
-                            <ul class="space-y-2 text-gray-400">
+                            <h3 data-i18n="skills_lang_title" class="text-base sm:text-xl font-heading font-bold text-white mb-3 sm:mb-4">Linguagens</h3>
+                            <ul class="space-y-2 text-gray-400 text-xs sm:text-sm md:text-base">
                                 <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> DAX</li>
                                 <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> SQL</li>
                                 <li class="flex items-center"><i class="fa-solid fa-check text-accent text-xs mr-2"></i> PySpark (Python)</li>
@@ -274,16 +273,16 @@
                         </div>
 
                         <!-- Card 4 -->
-                        <div class="bg-card border border-gray-800 rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 hover:border-accent group">
-                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-briefcase text-xl"></i>
+                        <div class="bg-card border border-gray-800 rounded-2xl p-5 sm:p-6 hover:-translate-y-1 transition-transform duration-300 hover:border-accent group">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gray-800 rounded-lg flex items-center justify-center text-accent mb-4 sm:mb-6 group-hover:bg-accent group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-briefcase text-lg sm:text-xl"></i>
                             </div>
-                            <h3 data-i18n="skills_aff_title" class="text-xl font-heading font-bold text-white mb-4">Análise de Afinidades</h3>
-                            <ul class="space-y-2 text-gray-400">
-                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1.5"></i> <span data-i18n="skills_aff1">Gestão de Carteira</span></li>
-                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1.5"></i> <span data-i18n="skills_aff2">Performance de Produto</span></li>
-                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1.5"></i> <span data-i18n="skills_aff3">Avaliação de Riscos</span></li>
-                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1.5"></i> <span data-i18n="skills_aff4">Monitoramento de Sinistralidade</span></li>
+                            <h3 data-i18n="skills_aff_title" class="text-base sm:text-xl font-heading font-bold text-white mb-3 sm:mb-4">Análise de Afinidades</h3>
+                            <ul class="space-y-2 text-gray-400 text-xs sm:text-sm md:text-base">
+                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1"></i> <span data-i18n="skills_aff1">Gestão de Carteira</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1"></i> <span data-i18n="skills_aff2">Performance de Produto</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1"></i> <span data-i18n="skills_aff3">Avaliação de Riscos</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-accent text-xs mr-2 mt-1"></i> <span data-i18n="skills_aff4">Monitoramento de Sinistralidade</span></li>
                             </ul>
                         </div>
                     </div>
@@ -291,24 +290,24 @@
             </div>
         </section>
 
-        <section id="projetos" class="py-20 bg-darker/50">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="projetos" class="py-14 sm:py-20 bg-darker/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="reveal">
-                    <div class="flex items-center gap-4 mb-12">
-                        <h2 data-i18n="case_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Case</h2>
+                    <div class="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-10">
+                        <h2 data-i18n="case_title" class="text-xl sm:text-3xl md:text-4xl font-heading font-bold text-white whitespace-nowrap">Case</h2>
                         <div class="h-px bg-gray-700 flex-grow"></div>
                     </div>
 
                     <div class="bg-card border border-gray-800 rounded-2xl overflow-hidden shadow-2xl">
-                        <div class="p-6 md:p-8 border-b border-gray-800">
+                        <div class="p-5 sm:p-6 md:p-8 border-b border-gray-800">
                             <div class="flex justify-between items-start flex-col md:flex-row gap-4">
                                 <div>
-                                    <h3 data-i18n="case_subtitle" class="text-2xl font-heading font-bold text-white mb-2">Dashboard Estratégico de Portfólio</h3>
-                                    <p data-i18n="case_desc" class="text-gray-400 max-w-3xl">
+                                    <h3 data-i18n="case_subtitle" class="text-lg sm:text-2xl font-heading font-bold text-white mb-2">Dashboard Estratégico de Portfólio</h3>
+                                    <p data-i18n="case_desc" class="text-gray-400 text-xs sm:text-sm md:text-base max-w-3xl">
                                         Case desenvolvido para o processo seletivo da Zurich. Este painel interativo demonstra capacidades avançadas de modelagem, tratamento de dados e UI/UX aplicados ao Business Intelligence, permitindo uma análise clara e acionável dos indicadores do negócio.
                                     </p>
                                 </div>
-                                <span class="bg-accent/10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap flex items-center shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+                                <span class="bg-accent/10 text-accent border border-accent/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap flex items-center shadow-[0_0_15px_rgba(6,182,212,0.15)]">
                                     <i class="fa-solid fa-chart-pie mr-2"></i> Power BI
                                 </span>
                             </div>
@@ -324,39 +323,39 @@
                             </iframe>
                         </div>
                         <div class="p-3 bg-gray-900/80 text-center border-t border-gray-800">
-                            <p class="text-xs text-gray-500"><i class="fa-solid fa-mouse-pointer mr-1"></i> <span data-i18n="case_hint">Interaja com o painel acima. Utilize o modo tela cheia no canto inferior direito do dashboard para a melhor experiência.</span></p>
+                            <p class="text-[11px] sm:text-xs text-gray-500"><i class="fa-solid fa-mouse-pointer mr-1"></i> <span data-i18n="case_hint">Interaja com o painel acima. Utilize o modo tela cheia no canto inferior direito do dashboard para a melhor experiência.</span></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="experiencia" class="py-20">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="experiencia" class="py-14 sm:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="reveal">
-                    <div class="flex items-center gap-4 mb-12">
-                        <h2 data-i18n="exp_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Experiência Profissional</h2>
+                    <div class="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-10">
+                        <h2 data-i18n="exp_title" class="text-xl sm:text-3xl md:text-4xl font-heading font-bold text-white whitespace-nowrap">Experiência Profissional</h2>
                         <div class="h-px bg-gray-700 flex-grow"></div>
                     </div>
 
-                    <div class="relative border-l-2 border-gray-700 ml-3 md:ml-6 space-y-12">
+                    <div class="relative border-l-2 border-gray-700 ml-2 sm:ml-6 space-y-10 sm:space-y-12">
                         
                         <!-- Zurich -->
-                        <div class="relative pl-8 md:pl-12">
-                            <div class="absolute w-4 h-4 bg-accent rounded-full -left-[9px] top-1.5 border-4 border-darker shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
+                        <div class="relative pl-5 sm:pl-10">
+                            <div class="absolute w-3.5 h-3.5 sm:w-4 sm:h-4 bg-accent rounded-full -left-[7px] sm:-left-[9px] top-1.5 border-4 border-darker shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
                             
-                            <h4 class="text-xl text-white mb-6 font-medium font-heading"><i class="fa-regular fa-building mr-2 text-accent"></i>Zurich Insurance Company Ltd <span data-i18n="loc_sp" class="text-gray-500 text-sm ml-2 font-sans">| São Paulo, SP</span></h4>
+                            <h4 class="text-base sm:text-xl text-white mb-5 font-medium font-heading"><i class="fa-regular fa-building mr-2 text-accent"></i>Zurich Insurance Company Ltd <span data-i18n="loc_sp" class="text-gray-500 text-xs sm:text-sm ml-1 sm:ml-2 font-sans">| São Paulo, SP</span></h4>
                             
                             <!-- Cargo Atual -->
-                            <div class="mb-8">
+                            <div class="mb-7">
                                 <div class="flex flex-col lg:flex-row lg:items-start justify-between mb-3 gap-2">
                                     <div>
-                                        <h3 data-i18n="exp_zurich_role1" class="text-2xl font-heading font-bold text-white">Coordenador de Portfólio Afinidades</h3>
-                                        <p data-i18n="exp_zurich_area" class="text-accent font-medium mt-1">Gestão de Dados, IA & Estratégia</p>
+                                        <h3 data-i18n="exp_zurich_role1" class="text-lg sm:text-2xl font-heading font-bold text-white">Coordenador de Portfólio Afinidades</h3>
+                                        <p data-i18n="exp_zurich_area" class="text-accent font-medium mt-0.5 text-xs sm:text-base">Gestão de Dados, IA & Estratégia</p>
                                     </div>
-                                    <span data-i18n="exp_zurich_date1" class="text-accent font-medium text-sm border border-accent/30 bg-accent/10 px-3 py-1 rounded-full w-fit lg:flex-shrink-0">Set 2026 - Presente</span>
+                                    <span data-i18n="exp_zurich_date1" class="text-accent font-medium text-xs sm:text-sm border border-accent/30 bg-accent/10 px-3 py-1 rounded-full w-fit lg:flex-shrink-0">Set 2026 - Presente</span>
                                 </div>
-                                <ul class="list-disc list-inside text-gray-300 space-y-3 text-justify">
+                                <ul class="list-disc list-inside text-gray-300 space-y-2.5 text-justify text-xs sm:text-sm md:text-base">
                                     <li data-i18n="exp_z1"><strong class="text-gray-100">Liderança técnica e desenvolvimento de equipe:</strong> Gestão, direcionamento e mentoria do time de analistas, impulsionando a alta performance, o refinamento técnico contínuo e um clima organizacional colaborativo.</li>
                                     <li data-i18n="exp_z2"><strong class="text-gray-100">Exposição executiva e parceria estratégica:</strong> Atuação como principal ponte entre a área de Portfólio, gestores e a alta gestão. Condução de apresentações estratégicas de resultados para executivos (C-Level) e parceiros de negócio, traduzindo cenários complexos de dados em narrativas de impacto.</li>
                                     <li data-i18n="exp_z3"><strong class="text-gray-100">Inteligência artificial e mitigação de riscos:</strong> Utilização diária de soluções de IA para otimização de rotinas analíticas e modelagem de cenários. Geração ágil de insights acionáveis com foco proativo na identificação de oportunidades.</li>
@@ -368,12 +367,12 @@
                             </div>
 
                             <!-- Cargo Anterior -->
-                            <div class="relative mt-6 pt-6 border-t border-gray-800 border-dashed">
-                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                                    <h3 class="text-xl font-heading font-bold text-gray-400">Portfolio Specialist | Data Visualization</h3>
-                                    <span data-i18n="exp_zurich_date2" class="text-gray-500 font-medium mt-2 md:mt-0 text-sm border border-gray-700 bg-gray-800/50 px-3 py-1 rounded-full w-fit">Jul 2025 - Ago 2026</span>
+                            <div class="relative mt-5 pt-5 border-t border-gray-800 border-dashed">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-1">
+                                    <h3 class="text-base sm:text-xl font-heading font-bold text-gray-400">Portfolio Specialist | Data Visualization</h3>
+                                    <span data-i18n="exp_zurich_date2" class="text-gray-500 font-medium text-xs sm:text-sm border border-gray-700 bg-gray-800/50 px-3 py-1 rounded-full w-fit">Jul 2025 - Ago 2026</span>
                                 </div>
-                                <ul class="list-disc list-inside text-gray-400 space-y-2 text-justify text-sm mt-3 opacity-80">
+                                <ul class="list-disc list-inside text-gray-400 space-y-1.5 text-justify text-xs sm:text-sm mt-2 opacity-80">
                                     <li data-i18n="exp_z8">Atuação estratégica na modernização e otimização de processos analíticos e transição de projetos SAS para Databricks (SQL e PySpark).</li>
                                     <li data-i18n="exp_z9">Desenvolvimento de pipelines de dados robustos e recriação de dashboards estratégicos no Power BI com análises de performance de produtos.</li>
                                 </ul>
@@ -381,18 +380,18 @@
                         </div>
 
                         <!-- AXA -->
-                        <div class="relative pl-8 md:pl-12">
-                            <div class="absolute w-4 h-4 bg-gray-500 rounded-full -left-[9px] top-1.5 border-4 border-darker"></div>
-                            <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-2 gap-4">
+                        <div class="relative pl-5 sm:pl-10">
+                            <div class="absolute w-3.5 h-3.5 sm:w-4 sm:h-4 bg-gray-500 rounded-full -left-[7px] sm:-left-[9px] top-1.5 border-4 border-darker"></div>
+                            <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-2 gap-2">
                                 <div>
-                                    <h3 class="text-2xl font-heading font-bold text-white">Affinity Portfolio Management Analyst / Power BI Developer</h3>
+                                    <h3 class="text-base sm:text-xl font-heading font-bold text-white">Affinity Portfolio Management Analyst / Power BI Developer</h3>
                                 </div>
                                 <div class="flex flex-col gap-2 items-start lg:items-end flex-shrink-0">
-                                    <span data-i18n="exp_axa_date" class="text-gray-400 font-medium text-sm border border-gray-700 bg-gray-800 px-3 py-1 rounded-full">Out 2022 - Jul 2025</span>
+                                    <span data-i18n="exp_axa_date" class="text-gray-400 font-medium text-xs sm:text-sm border border-gray-700 bg-gray-800 px-3 py-1 rounded-full">Out 2022 - Jul 2025</span>
                                 </div>
                             </div>
-                            <h4 class="text-lg text-gray-400 mb-4 font-medium"><i class="fa-regular fa-building mr-2"></i>AXA no Brasil <span data-i18n="loc_sp" class="text-gray-500 text-sm ml-2">| São Paulo, SP</span></h4>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-justify">
+                            <h4 class="text-sm sm:text-base text-gray-400 mb-3 font-medium"><i class="fa-regular fa-building mr-2"></i>AXA no Brasil <span data-i18n="loc_sp" class="text-gray-500 text-xs sm:text-sm ml-1">| São Paulo, SP</span></h4>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-justify text-xs sm:text-sm md:text-base">
                                 <li data-i18n="exp_a1">Desenvolvimento e implementação de dashboards interativos em Power BI para análise e gerenciamento de portfólio, otimizando a visualização de dados para a liderança.</li>
                                 <li data-i18n="exp_a2">Realização de processos de ETL (Extração, Transformação e Carga) utilizando SQL Server e Linguagem M (Power Query).</li>
                                 <li data-i18n="exp_a3">Criação de novos indicadores de acompanhamento de performance de produtos, fornecendo insights valiosos para a estratégia de negócios.</li>
@@ -402,14 +401,14 @@
                         </div>
 
                         <!-- Tokio Marine -->
-                        <div class="relative pl-8 md:pl-12">
-                            <div class="absolute w-4 h-4 bg-gray-500 rounded-full -left-[9px] top-1.5 border-4 border-darker"></div>
-                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                                <h3 data-i18n="exp_tokio_role" class="text-2xl font-heading font-bold text-white">Analista de Controladoria</h3>
-                                <span data-i18n="exp_tokio_date" class="text-gray-400 font-medium mt-2 md:mt-0 text-sm border border-gray-700 bg-gray-800 px-3 py-1 rounded-full w-fit">Mar 2022 - Out 2022</span>
+                        <div class="relative pl-5 sm:pl-10">
+                            <div class="absolute w-3.5 h-3.5 sm:w-4 sm:h-4 bg-gray-500 rounded-full -left-[7px] sm:-left-[9px] top-1.5 border-4 border-darker"></div>
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-1">
+                                <h3 data-i18n="exp_tokio_role" class="text-base sm:text-xl font-heading font-bold text-white">Analista de Controladoria</h3>
+                                <span data-i18n="exp_tokio_date" class="text-gray-400 font-medium text-xs sm:text-sm border border-gray-700 bg-gray-800 px-3 py-1 rounded-full w-fit">Mar 2022 - Out 2022</span>
                             </div>
-                            <h4 class="text-lg text-gray-400 mb-4 font-medium"><i class="fa-regular fa-building mr-2"></i>Tokio Marine Seguradora <span data-i18n="loc_sp" class="text-gray-500 text-sm ml-2">| São Paulo, SP</span></h4>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-justify">
+                            <h4 class="text-sm sm:text-base text-gray-400 mb-3 font-medium"><i class="fa-regular fa-building mr-2"></i>Tokio Marine Seguradora <span data-i18n="loc_sp" class="text-gray-500 text-xs sm:text-sm ml-1">| São Paulo, SP</span></h4>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-justify text-xs sm:text-sm md:text-base">
                                 <li data-i18n="exp_t1">Condução do ciclo completo de fechamento mensal, incluindo prévia de fechamento, DRE e indicadores de performance.</li>
                                 <li data-i18n="exp_t2">Automatização de processos de tratamento de dados e elaboração de relatórios utilizando Linguagem M (Power Query) e VBA, resultando em 90% de redução no tempo manual.</li>
                                 <li data-i18n="exp_t3">Desenvolvimento de relatórios e dashboards em Power BI para análise de resultados, melhorando a capacidade analítica da equipe.</li>
@@ -418,18 +417,18 @@
                         </div>
 
                         <!-- Almeida Santos -->
-                        <div class="relative pl-8 md:pl-12">
-                            <div class="absolute w-4 h-4 bg-gray-500 rounded-full -left-[9px] top-1.5 border-4 border-darker"></div>
-                            <div class="flex flex-col lg:flex-row lg:items-start justify-between mb-2 gap-4">
+                        <div class="relative pl-5 sm:pl-10">
+                            <div class="absolute w-3.5 h-3.5 sm:w-4 sm:h-4 bg-gray-500 rounded-full -left-[7px] sm:-left-[9px] top-1.5 border-4 border-darker"></div>
+                            <div class="flex flex-col lg:flex-row lg:items-start justify-between mb-2 gap-2">
                                 <div>
-                                    <h3 data-i18n="exp_alm_role1" class="text-2xl font-heading font-bold text-white">Coordenador de Planejamento e Controle (I e II)</h3>
-                                    <h3 class="text-lg font-heading font-medium text-gray-400 mt-1"><span data-i18n="exp_alm_role2">Analista de Planejamento e Controle</span> <span data-i18n="exp_alm_date2" class="text-sm">(Fev 2019 - Mai 2019)</span></h3>
-                                    <h3 class="text-lg font-heading font-medium text-gray-400"><span data-i18n="exp_alm_role3">Assistente / Auxiliar Financeiro</span> <span data-i18n="exp_alm_date3" class="text-sm">(Ago 2017 - Fev 2019)</span></h3>
+                                    <h3 data-i18n="exp_alm_role1" class="text-base sm:text-xl font-heading font-bold text-white">Coordenador de Planejamento e Controle (I e II)</h3>
+                                    <h3 class="text-sm sm:text-base font-heading font-medium text-gray-400 mt-0.5"><span data-i18n="exp_alm_role2">Analista de Planejamento e Controle</span> <span data-i18n="exp_alm_date2" class="text-xs sm:text-sm">(Fev 2019 - Mai 2019)</span></h3>
+                                    <h3 class="text-sm sm:text-base font-heading font-medium text-gray-400"><span data-i18n="exp_alm_role3">Assistente / Auxiliar Financeiro</span> <span data-i18n="exp_alm_date3" class="text-xs sm:text-sm">(Ago 2017 - Fev 2019)</span></h3>
                                 </div>
-                                <span data-i18n="exp_alm_date1" class="text-gray-400 font-medium text-sm border border-gray-700 bg-gray-800 px-3 py-1 rounded-full w-fit lg:flex-shrink-0">Jun 2019 - Mar 2022 (Coord)</span>
+                                <span data-i18n="exp_alm_date1" class="text-gray-400 font-medium text-xs sm:text-sm border border-gray-700 bg-gray-800 px-3 py-1 rounded-full w-fit lg:flex-shrink-0">Jun 2019 - Mar 2022 (Coord)</span>
                             </div>
-                            <h4 class="text-lg text-gray-400 mb-4 font-medium mt-2"><i class="fa-regular fa-building mr-2"></i>Almeida Santos Advogados <span data-i18n="loc_sp" class="text-gray-500 text-sm ml-2">| São Paulo, SP</span></h4>
-                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-justify">
+                            <h4 class="text-sm sm:text-base text-gray-400 mb-3 font-medium mt-1"><i class="fa-regular fa-building mr-2"></i>Almeida Santos Advogados <span data-i18n="loc_sp" class="text-gray-500 text-xs sm:text-sm ml-1">| São Paulo, SP</span></h4>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-justify text-xs sm:text-sm md:text-base">
                                 <li data-i18n="exp_al1">Criação de relatórios automatizados em Power BI (ETL, criação de dashboard e filtros avançados com DAX).</li>
                                 <li data-i18n="exp_al2">Automatização de processos e cálculos complexos com Linguagem M (Power Query) e VBA, mitigando erros e otimizando a rotina.</li>
                                 <li data-i18n="exp_al3">Responsável pela apuração e análise de resultados, apresentação de books corporativos, estudos de redução de custos e gestão de pessoas.</li>
@@ -443,98 +442,98 @@
             </div>
         </section>
 
-        <section id="formacao" class="py-20 bg-darker/50">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="formacao" class="py-14 sm:py-20 bg-darker/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="reveal">
-                    <div class="flex items-center gap-4 mb-12">
-                        <h2 data-i18n="edu_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Formação & Certificações</h2>
+                    <div class="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-10">
+                        <h2 data-i18n="edu_title" class="text-xl sm:text-3xl md:text-4xl font-heading font-bold text-white whitespace-nowrap">Formação & Certificações</h2>
                         <div class="h-px bg-gray-700 flex-grow"></div>
                     </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
                         <div>
-                            <h3 class="text-2xl font-heading font-semibold text-accent mb-6 flex items-center"><i class="fa-solid fa-graduation-cap mr-3"></i> <span data-i18n="edu_academic">Acadêmico</span></h3>
-                            <div class="space-y-6">
-                                <div class="bg-card border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
-                                    <h4 data-i18n="edu_mba" class="text-lg font-bold text-white">MBA em Controladoria e Contabilidade Estratégica</h4>
-                                    <p class="text-gray-400 mt-1">Universidade Santo Amaro - Unisa</p>
-                                    <p class="text-sm text-accent mt-2 font-medium">2019 - 2020</p>
+                            <h3 class="text-lg sm:text-xl font-heading font-semibold text-accent mb-5 flex items-center"><i class="fa-solid fa-graduation-cap mr-3"></i> <span data-i18n="edu_academic">Acadêmico</span></h3>
+                            <div class="space-y-5">
+                                <div class="bg-card border border-gray-800 p-5 sm:p-6 rounded-xl hover:border-gray-600 transition-colors">
+                                    <h4 data-i18n="edu_mba" class="text-sm sm:text-base font-bold text-white">MBA em Controladoria e Contabilidade Estratégica</h4>
+                                    <p class="text-gray-400 mt-1 text-xs sm:text-sm">Universidade Santo Amaro - Unisa</p>
+                                    <p class="text-xs text-accent mt-2 font-medium">2019 - 2020</p>
                                 </div>
-                                <div class="bg-card border border-gray-800 p-6 rounded-xl hover:border-gray-600 transition-colors">
-                                    <h4 data-i18n="edu_fin" class="text-lg font-bold text-white">Gestão Financeira</h4>
-                                    <p class="text-gray-400 mt-1">Universidade Nove de Julho - Uninove</p>
-                                    <p class="text-sm text-gray-500 mt-2 font-medium">2015 - 2017</p>
+                                <div class="bg-card border border-gray-800 p-5 sm:p-6 rounded-xl hover:border-gray-600 transition-colors">
+                                    <h4 data-i18n="edu_fin" class="text-sm sm:text-base font-bold text-white">Gestão Financeira</h4>
+                                    <p class="text-gray-400 mt-1 text-xs sm:text-sm">Universidade Nove de Julho - Uninove</p>
+                                    <p class="text-xs text-gray-500 mt-2 font-medium">2015 - 2017</p>
                                 </div>
                             </div>
 
-                            <h3 class="text-2xl font-heading font-semibold text-accent mb-6 mt-10 flex items-center"><i class="fa-solid fa-language mr-3"></i> <span data-i18n="edu_lang">Idiomas</span></h3>
-                            <div class="bg-card border border-gray-800 p-6 rounded-xl flex gap-8">
+                            <h3 class="text-lg sm:text-xl font-heading font-semibold text-accent mb-5 mt-8 flex items-center"><i class="fa-solid fa-language mr-3"></i> <span data-i18n="edu_lang">Idiomas</span></h3>
+                            <div class="bg-card border border-gray-800 p-5 sm:p-6 rounded-xl flex gap-8">
                                 <div>
-                                    <p data-i18n="lang_pt" class="font-bold text-white">Português</p>
-                                    <p data-i18n="lang_pt_lvl" class="text-gray-400 text-sm">Nativo</p>
+                                    <p data-i18n="lang_pt" class="font-bold text-white text-xs sm:text-sm">Português</p>
+                                    <p data-i18n="lang_pt_lvl" class="text-gray-400 text-xs">Nativo</p>
                                 </div>
                                 <div>
-                                    <p data-i18n="lang_en" class="font-bold text-white">Inglês</p>
-                                    <p data-i18n="lang_en_lvl" class="text-gray-400 text-sm">Intermediário - Avançado</p>
+                                    <p data-i18n="lang_en" class="font-bold text-white text-xs sm:text-sm">Inglês</p>
+                                    <p data-i18n="lang_en_lvl" class="text-gray-400 text-xs">Intermediário - Avançado</p>
                                 </div>
                             </div>
                         </div>
 
                         <div>
-                            <h3 class="text-2xl font-heading font-semibold text-accent mb-6 flex items-center"><i class="fa-solid fa-certificate mr-3"></i> <span data-i18n="edu_cert">Certificações e Cursos</span></h3>
-                            <div class="bg-card border border-gray-800 rounded-xl p-6 h-full shadow-lg">
-                                <ul class="space-y-5">
+                            <h3 class="text-lg sm:text-xl font-heading font-semibold text-accent mb-5 flex items-center"><i class="fa-solid fa-certificate mr-3"></i> <span data-i18n="edu_cert">Certificações e Cursos</span></h3>
+                            <div class="bg-card border border-gray-800 rounded-xl p-5 sm:p-6 h-full shadow-lg">
+                                <ul class="space-y-4">
                                     <li class="flex items-start group">
-                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
-                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-3 sm:mr-4 flex-shrink-0">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors text-sm"></i>
                                         </div>
                                         <div>
-                                            <p data-i18n="cert_sql" class="font-medium text-white">MCSA: Desenvolvimento de Banco de Dados de SQL 2016</p>
-                                            <p class="text-sm text-gray-500 mt-0.5">Microsoft</p>
+                                            <p data-i18n="cert_sql" class="font-medium text-white text-xs sm:text-sm">MCSA: Desenvolvimento de Banco de Dados de SQL 2016</p>
+                                            <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Microsoft</p>
                                         </div>
                                     </li>
                                     <li class="flex items-start group">
-                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
-                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-3 sm:mr-4 flex-shrink-0">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors text-sm"></i>
                                         </div>
-                                        <div class="mt-1">
-                                            <p data-i18n="cert_py" class="font-medium text-white">Python com Foco em Análise de Dados</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex items-start group">
-                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
-                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
-                                        </div>
-                                        <div>
-                                            <p data-i18n="cert_pbi_adv" class="font-medium text-white">Power BI Avançado</p>
-                                            <p class="text-sm text-gray-500 mt-0.5">Dados Criativos</p>
+                                        <div class="mt-0.5">
+                                            <p data-i18n="cert_py" class="font-medium text-white text-xs sm:text-sm">Python com Foco em Análise de Dados</p>
                                         </div>
                                     </li>
                                     <li class="flex items-start group">
-                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
-                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-3 sm:mr-4 flex-shrink-0">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors text-sm"></i>
                                         </div>
                                         <div>
-                                            <p data-i18n="cert_pbi_bas" class="font-medium text-white">Power BI - Básico ao Avançado</p>
-                                            <p class="text-sm text-gray-500 mt-0.5">Udemy</p>
+                                            <p data-i18n="cert_pbi_adv" class="font-medium text-white text-xs sm:text-sm">Power BI Avançado</p>
+                                            <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Dados Criativos</p>
                                         </div>
                                     </li>
                                     <li class="flex items-start group">
-                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
-                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-3 sm:mr-4 flex-shrink-0">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors text-sm"></i>
                                         </div>
                                         <div>
-                                            <p class="font-medium text-white">HTML, CSS, JavaScript e SQL</p>
-                                            <p class="text-sm text-gray-500 mt-0.5">B7Web</p>
+                                            <p data-i18n="cert_pbi_bas" class="font-medium text-white text-xs sm:text-sm">Power BI - Básico ao Avançado</p>
+                                            <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Udemy</p>
                                         </div>
                                     </li>
                                     <li class="flex items-start group">
-                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-4">
-                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors"></i>
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-3 sm:mr-4 flex-shrink-0">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors text-sm"></i>
                                         </div>
                                         <div>
-                                            <p data-i18n="cert_excel" class="font-medium text-white">Excel Avançado</p>
-                                            <p class="text-sm text-gray-500 mt-0.5">Fundação Bradesco</p>
+                                            <p class="font-medium text-white text-xs sm:text-sm">HTML, CSS, JavaScript e SQL</p>
+                                            <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">B7Web</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <div class="bg-gray-800 p-2 rounded-lg group-hover:bg-accent transition-colors mr-3 sm:mr-4 flex-shrink-0">
+                                            <i class="fa-solid fa-award text-accent group-hover:text-white transition-colors text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <p data-i18n="cert_excel" class="font-medium text-white text-xs sm:text-sm">Excel Avançado</p>
+                                            <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Fundação Bradesco</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -545,49 +544,49 @@
             </div>
         </section>
 
-        <section id="contato" class="py-20">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="contato" class="py-14 sm:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="reveal">
-                    <div class="flex items-center gap-4 mb-12">
-                        <h2 data-i18n="contact_title" class="text-3xl md:text-4xl font-heading font-bold text-white">Contato</h2>
+                    <div class="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-10">
+                        <h2 data-i18n="contact_title" class="text-xl sm:text-3xl md:text-4xl font-heading font-bold text-white whitespace-nowrap">Contato</h2>
                         <div class="h-px bg-gray-700 flex-grow"></div>
                     </div>
 
-                    <div class="bg-card border border-gray-800 rounded-2xl p-8 md:p-12 shadow-xl text-center relative overflow-hidden">
+                    <div class="bg-card border border-gray-800 rounded-2xl p-5 sm:p-8 md:p-12 shadow-xl text-center relative overflow-hidden">
                         <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-[80px] -z-0"></div>
                         
                         <div class="relative z-10">
-                            <h3 data-i18n="contact_subtitle" class="text-2xl font-heading font-bold text-white mb-4">Vamos conversar?</h3>
-                            <p data-i18n="contact_desc" class="text-gray-400 mb-10 max-w-2xl mx-auto text-lg">
+                            <h3 data-i18n="contact_subtitle" class="text-lg sm:text-2xl font-heading font-bold text-white mb-3">Vamos conversar?</h3>
+                            <p data-i18n="contact_desc" class="text-gray-400 mb-6 sm:mb-9 max-w-2xl mx-auto text-xs sm:text-sm md:text-base">
                                 Estou sempre aberto a conversar sobre análise de dados, BI, gestão de portfólio e novas oportunidades. Sinta-se à vontade para me mandar uma mensagem por qualquer um dos canais abaixo!
                             </p>
                             
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
                                 <!-- Botão Email -->
-                                <a href="mailto:ewerton.jbv@outlook.com" aria-label="Enviar email" class="group bg-dark border border-gray-700 p-6 rounded-xl hover:border-accent hover:bg-gray-800/80 transition-all shadow-lg hover:-translate-y-1">
-                                    <div class="w-14 h-14 bg-gray-800 group-hover:bg-accent rounded-full flex items-center justify-center mx-auto mb-4 text-accent group-hover:text-white transition-colors shadow-inner">
-                                        <i class="fa-solid fa-envelope text-2xl"></i>
+                                <a href="mailto:ewerton.jbv@outlook.com" aria-label="Enviar email" class="group bg-dark border border-gray-700 p-5 rounded-xl hover:border-accent hover:bg-gray-800/80 transition-all shadow-lg hover:-translate-y-1">
+                                    <div class="w-11 h-11 sm:w-13 sm:h-13 bg-gray-800 group-hover:bg-accent rounded-full flex items-center justify-center mx-auto mb-3 text-accent group-hover:text-white transition-colors shadow-inner">
+                                        <i class="fa-solid fa-envelope text-lg sm:text-xl"></i>
                                     </div>
-                                    <h4 data-i18n="contact_email" class="text-lg font-bold text-white mb-1">E-mail</h4>
-                                    <p class="text-gray-400 text-sm break-all">ewerton.jbv@outlook.com</p>
+                                    <h4 data-i18n="contact_email" class="text-sm sm:text-base font-bold text-white mb-1">E-mail</h4>
+                                    <p class="text-gray-400 text-xs break-all">ewerton.jbv@outlook.com</p>
                                 </a>
 
                                 <!-- Botão WhatsApp -->
-                                <a href="https://wa.me/5511944941488" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp" class="group bg-dark border border-gray-700 p-6 rounded-xl hover:border-[#25D366] hover:bg-gray-800/80 transition-all shadow-lg hover:-translate-y-1">
-                                    <div class="w-14 h-14 bg-gray-800 group-hover:bg-[#25D366] rounded-full flex items-center justify-center mx-auto mb-4 text-[#25D366] group-hover:text-white transition-colors shadow-inner">
-                                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                <a href="https://wa.me/5511944941488" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp" class="group bg-dark border border-gray-700 p-5 rounded-xl hover:border-[#25D366] hover:bg-gray-800/80 transition-all shadow-lg hover:-translate-y-1">
+                                    <div class="w-11 h-11 sm:w-13 sm:h-13 bg-gray-800 group-hover:bg-[#25D366] rounded-full flex items-center justify-center mx-auto mb-3 text-[#25D366] group-hover:text-white transition-colors shadow-inner">
+                                        <i class="fa-brands fa-whatsapp text-lg sm:text-xl"></i>
                                     </div>
-                                    <h4 data-i18n="contact_phone" class="text-lg font-bold text-white mb-1">WhatsApp</h4>
-                                    <p class="text-gray-400 text-sm">(11) 94494-1488</p>
+                                    <h4 data-i18n="contact_phone" class="text-sm sm:text-base font-bold text-white mb-1">WhatsApp</h4>
+                                    <p class="text-gray-400 text-xs">(11) 94494-1488</p>
                                 </a>
 
                                 <!-- Botão LinkedIn -->
-                                <a href="https://www.linkedin.com/in/ewertonjbv" target="_blank" rel="noopener noreferrer" aria-label="Acessar LinkedIn" class="group bg-dark border border-gray-700 p-6 rounded-xl hover:border-[#0077b5] hover:bg-gray-800/80 transition-all shadow-lg hover:-translate-y-1">
-                                    <div class="w-14 h-14 bg-gray-800 group-hover:bg-[#0077b5] rounded-full flex items-center justify-center mx-auto mb-4 text-[#0077b5] group-hover:text-white transition-colors shadow-inner">
-                                        <i class="fa-brands fa-linkedin-in text-2xl"></i>
+                                <a href="https://www.linkedin.com/in/ewertonjbv" target="_blank" rel="noopener noreferrer" aria-label="Acessar LinkedIn" class="group bg-dark border border-gray-700 p-5 rounded-xl hover:border-[#0077b5] hover:bg-gray-800/80 transition-all shadow-lg hover:-translate-y-1">
+                                    <div class="w-11 h-11 sm:w-13 sm:h-13 bg-gray-800 group-hover:bg-[#0077b5] rounded-full flex items-center justify-center mx-auto mb-3 text-[#0077b5] group-hover:text-white transition-colors shadow-inner">
+                                        <i class="fa-brands fa-linkedin-in text-lg sm:text-xl"></i>
                                     </div>
-                                    <h4 data-i18n="contact_linkedin" class="text-lg font-bold text-white mb-1">LinkedIn</h4>
-                                    <p class="text-gray-400 text-sm">/in/ewertonjbv</p>
+                                    <h4 data-i18n="contact_linkedin" class="text-sm sm:text-base font-bold text-white mb-1">LinkedIn</h4>
+                                    <p class="text-gray-400 text-xs">/in/ewertonjbv</p>
                                 </a>
                             </div>
                         </div>
@@ -597,15 +596,15 @@
         </section>
     </main>
 
-    <footer class="bg-darker border-t border-gray-800 py-12 mt-10">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer class="bg-darker border-t border-gray-800 py-8 sm:py-10 mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-                <p class="text-2xl font-heading font-bold text-white mb-1">Ewerton Vieira</p>
-                <p class="text-gray-400 text-sm">© <span id="year"></span> <span data-i18n="footer_rights">Todos os direitos reservados.</span></p>
+                <p class="text-lg sm:text-xl font-heading font-bold text-white mb-1">Ewerton Vieira</p>
+                <p class="text-gray-400 text-xs">© <span id="year"></span> <span data-i18n="footer_rights">Todos os direitos reservados.</span></p>
             </div>
             
-            <div class="max-w-md text-center md:text-right">
-                <p data-i18n="footer_quote" class="text-gray-400 text-sm italic">
+            <div class="max-w-md text-center md:text-right px-4 md:px-0">
+                <p data-i18n="footer_quote" class="text-gray-400 text-xs sm:text-sm italic">
                     "Tecnologia se compra, processos se desenham, mas o talento e a paixão das pessoas se conquistam."
                 </p>
             </div>
@@ -622,7 +621,7 @@
                 summary_title: "Resumo Profissional",
                 summary_p1: "Coordenador de Portfólio e Especialista em Business Intelligence com <strong>mais de 10 anos de experiência</strong> em arquitetura analítica, automação de dados e liderança técnica. Atualmente na Zurich Insurance, atuo como ponte estratégica com a alta gestão (C-Level), unindo gestão de pessoas, inteligência artificial aplicada e governança de dados para impulsionar a eficiência operacional.",
                 summary_p2: "Possuo sólido domínio em <strong>Power BI, Databricks, PySpark, Python, SQL e ecossistema Microsoft Fabric</strong>, com histórico comprovado em projetos de grande escala — como a otimização de ambientes que reduziu ciclos de fechamento de <span class='text-accent font-semibold'>20 dias para apenas 8 horas</span>. Sou apaixonado por criar soluções escaláveis, focado em UX analítico e em transformar dados complexos em decisões de alto impacto.",
-                summary_stat1: "Anos de Experiência", summary_stat2_title: "Coordenador", summary_stat2: "Portfólio & Dados", summary_stat4: "Base de Atuação",
+                summary_stat1: "Anos de Experiência", summary_stat2_title: "Gestor", summary_stat2: "Portfólio & Dados", summary_stat4: "Base de Atuação",
                 skills_title: "Competências Técnicas", skills_portfolio: "Análise de Portfólio", skills_lang_title: "Linguagens", skills_aff_title: "Análise de Afinidades",
                 skills_aff1: "Gestão de Carteira", skills_aff2: "Performance de Produto", skills_aff3: "Avaliação de Riscos", skills_aff4: "Monitoramento de Sinistralidade",
                 case_title: "Case", case_subtitle: "Dashboard Estratégico de Portfólio",
@@ -674,7 +673,7 @@
                 summary_title: "Professional Summary",
                 summary_p1: "Portfolio Coordinator and Business Intelligence Specialist with <strong>over 10 years of experience</strong> in analytical architecture, data automation, and technical leadership. Currently at Zurich Insurance, I act as a strategic bridge with top management (C-Level), uniting people management, applied artificial intelligence, and data governance to drive operational efficiency.",
                 summary_p2: "I have solid expertise in <strong>Power BI, Databricks, PySpark, Python, SQL, and the Microsoft Fabric ecosystem</strong>, with a proven track record in large-scale projects — such as environment optimization that reduced closing cycles from <span class='text-accent font-semibold'>20 days to just 8 hours</span>. I am passionate about creating scalable solutions, focused on analytical UX and transforming complex data into high-impact decisions.",
-                summary_stat1: "Years of Experience", summary_stat2_title: "Coordinator", summary_stat2: "Portfolio & Data", summary_stat4: "Location",
+                summary_stat1: "Years of Experience", summary_stat2_title: "Manager", summary_stat2: "Portfolio & Data", summary_stat4: "Location",
                 skills_title: "Technical Skills", skills_portfolio: "Portfolio Analysis", skills_lang_title: "Languages", skills_aff_title: "Affinity Analysis",
                 skills_aff1: "Portfolio Management", skills_aff2: "Product Performance", skills_aff3: "Risk Assessment", skills_aff4: "Claims Monitoring",
                 case_title: "Case", case_subtitle: "Strategic Portfolio Dashboard",
@@ -726,14 +725,14 @@
                 summary_title: "Resumen Profesional",
                 summary_p1: "Coordinador de Portfólio y Especialista en Business Intelligence con <strong>más de 10 años de experiencia</strong> en arquitectura analítica, automatización de datos y liderazgo técnico. Actualmente en Zurich Insurance, actúo como puente estratégico con la alta dirección (C-Level), uniendo gestión de personas, inteligencia artificial aplicada y gobernanza de datos para impulsar la eficiencia operativa.",
                 summary_p2: "Poseo sólido dominio en <strong>Power BI, Databricks, PySpark, Python, SQL y el ecosistema Microsoft Fabric</strong>, con un historial comprobado en proyectos a gran escala — como la optimización de entornos que redujo los ciclos de cierre de <span class='text-accent font-semibold'>20 días a solo 8 horas</span>. Me apasiona crear soluciones escalables, enfocado en UX analítico y en transformar datos complejos en decisiones de alto impacto.",
-                summary_stat1: "Años de Experiencia", summary_stat2_title: "Coordinador", summary_stat2: "Portafolio y Datos", summary_stat4: "Ubicación",
+                summary_stat1: "Años de Experiencia", summary_stat2_title: "Gestor", summary_stat2: "Portafolio y Datos", summary_stat4: "Ubicación",
                 skills_title: "Competencias Técnicas", skills_portfolio: "Análisis de Cartera", skills_lang_title: "Idiomas", skills_aff_title: "Análisis de Afinidades",
                 skills_aff1: "Gestión de Cartera", skills_aff2: "Rendimiento de Producto", skills_aff3: "Evaluación de Riesgos", skills_aff4: "Monitoreo de Siniestralidad",
                 case_title: "Caso de Éxito", case_subtitle: "Dashboard Estratégico de Cartera",
                 case_desc: "Case desarrollado para el proceso de selección de Zurich. Este panel interactivo demuestra capacidades avanzadas de modelado, procesamiento de datos y UI/UX aplicadas a BI, permitiendo un análisis claro y procesable de los indicadores comerciales.",
                 case_hint: "Interactúa con el panel de arriba. Usa el modo de pantalla completa en la esquina inferior derecha para una mejor experiencia.",
                 exp_title: "Experiencia Profesional", loc_sp: "| São Paulo, BR",
-                exp_zurich_role1: "Coordinador de Portafolio Afinidades", exp_zurich_area: "Gestión de Datos, IA y Estrategia", exp_zurich_date1: "Sep 2026 - Presente",
+                exp_zurich_role1: "Coordinador de Portafolio Afinidades", exp_zurich_area: "Gestión de Datos, IA y Estratégia", exp_zurich_date1: "Sep 2026 - Presente",
                 exp_z1: "<strong class='text-gray-100'>Liderazgo técnico y desarrollo de equipo:</strong> Gestión, orientación y tutoría del equipo de analistas, impulsando el alto rendimiento, el refinamiento técnico continuo y un entorno colaborativo.",
                 exp_z2: "<strong class='text-gray-100'>Exposición ejecutiva y asociación estratégica:</strong> Actuando como puente principal entre el área de Portfólio, gerentes y alta dirección. Liderar presentaciones de resultados estratégicos para ejecutivos (C-Level).",
                 exp_z3: "<strong class='text-gray-100'>Inteligencia Artificial y mitigación de riesgos:</strong> Uso diario de soluciones de IA para optimizar rutinas analíticas y modelado de escenarios. Generación ágil de insights procesables.",
@@ -749,8 +748,8 @@
                 exp_a2: "Ejecución de procesos ETL utilizando SQL Server y Lenguaje M (Power Query).",
                 exp_a3: "Creación de nuevos indicadores de seguimiento para el rendimiento de productos.",
                 exp_a4: "Mantenimiento y optimización de reportes desarrollados en Python.",
-                exp_a5: "Evaluación de riesgos, monitoreo de siniestralidad vs. gatillos contractuales y análisis predictivos.",
-                exp_tokio_role: "Analista de Controladuría", exp_tokio_date: "Mar 2022 - Oct 2022",
+                exp_a5: "Evaluación de riesgos, monitoreo de siniestralidade vs. gatillos contractuales y análisis predictivos.",
+                exp_tokio_role: "Analista de Controladuría", exp_tokio_date: "Mar 2022 - Out 2022",
                 exp_t1: "Conducción del ciclo completo de cierre mensual, incluyendo previas de cierre, P&L e indicadores de rendimiento.",
                 exp_t2: "Automatización del procesamiento de datos usando Lenguaje M y VBA, resultando en un 90% de reducción del tiempo manual.",
                 exp_t3: "Desarrollo de reportes y dashboards en Power BI para análisis de resultados.",
@@ -758,7 +757,7 @@
                 exp_alm_role1: "Coordinador de Planificación y Control", exp_alm_role2: "Analista de Planificación y Control", exp_alm_date2: "(Feb 2019 - May 2019)",
                 exp_alm_role3: "Asistente Financiero", exp_alm_date3: "(Ago 2017 - Feb 2019)", exp_alm_date1: "Jun 2019 - Mar 2022 (Coord)",
                 exp_al1: "Creación de reportes automatizados en Power BI (ETL, creación de dashboard y filtros avanzados con DAX).",
-                exp_al2: "Automatización de procesos complejos y cálculos con Lenguaje M (Power Query) y VBA.",
+                exp_al2: "Automatización de procesos complejos y cálculos con Lenguaje M (Power Query) e VBA.",
                 exp_al3: "Responsable del cálculo y análisis de resultados, presentación de libros corporativos, estudios de reducción de costos y gestión de personas.",
                 exp_al4: "Creación de KPIs y mantenimiento de reportes de seguimiento de cartera.",
                 exp_al5: "Automatización de rutinas de cuentas por cobrar, conciliación bancaria y cobranza.",
