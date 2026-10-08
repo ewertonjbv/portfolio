@@ -1,0 +1,31 @@
+/* Modern, compact floating navigation for screens below 768px */
+.mobile-menu-trigger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;color:#e2e8f0;background:rgba(30,41,59,.72);border:1px solid rgba(148,163,184,.28);border-radius:13px;transition:background .2s,border-color .2s}
+.mobile-menu-trigger:hover,.mobile-menu-trigger.is-open{border-color:rgba(34,211,238,.65);background:rgba(8,145,178,.18)}
+.mobile-menu-trigger:focus-visible,.mobile-menu-close:focus-visible,.mobile-menu-link:focus-visible,.mobile-menu-contact:focus-visible{outline:2px solid #67e8f9;outline-offset:3px}
+.mobile-menu-icon{position:relative;width:19px;height:16px;display:block}
+.mobile-menu-icon span{position:absolute;left:0;height:2px;background:currentColor;border-radius:3px;transition:transform .22s,opacity .18s}
+.mobile-menu-icon span:nth-child(1){top:1px;width:19px}.mobile-menu-icon span:nth-child(2){top:7px;width:14px}.mobile-menu-icon span:nth-child(3){top:13px;width:19px}
+.mobile-menu-trigger.is-open .mobile-menu-icon span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.mobile-menu-trigger.is-open .mobile-menu-icon span:nth-child(2){opacity:0}
+.mobile-menu-trigger.is-open .mobile-menu-icon span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-menu-backdrop[hidden],.mobile-menu-panel[hidden]{display:none!important}
+.mobile-menu-backdrop{position:fixed;inset:0;z-index:40;background:rgba(2,6,23,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.mobile-menu-panel{position:fixed;z-index:60;top:74px;left:12px;right:12px;max-width:440px;max-height:calc(100vh - 86px);max-height:calc(100dvh - 86px);overflow-y:auto;margin-left:auto;padding:20px;border-radius:22px;border:1px solid rgba(103,232,249,.2);background:linear-gradient(145deg,rgba(30,45,67,.99),rgba(12,23,42,.99));box-shadow:0 24px 70px rgba(0,0,0,.55);animation:mobile-menu-appear .22s cubic-bezier(.2,.8,.2,1) both}
+.mobile-menu-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}
+.mobile-menu-eyebrow{color:#67e8f9;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.mobile-menu-subtitle{color:#cbd5e1;font-size:13px;margin-top:4px}
+.mobile-menu-close{width:32px;height:32px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid rgba(148,163,184,.2);background:rgba(255,255,255,.05);color:#cbd5e1}
+.mobile-menu-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.mobile-menu-link{display:flex;align-items:center;gap:10px;min-width:0;min-height:63px;padding:12px 11px;border:1px solid rgba(148,163,184,.13);border-radius:13px;background:rgba(15,23,42,.75);color:#d7e3f2;transition:border-color .2s,background .2s,transform .2s}
+.mobile-menu-link:hover,.mobile-menu-link.is-current{border-color:rgba(34,211,238,.46);background:rgba(6,182,212,.11);color:white}
+.mobile-menu-link:active{transform:scale(.98)}.mobile-menu-link i{flex:0 0 23px;text-align:center;color:#67e8f9;font-size:15px}
+.mobile-menu-link-label{min-width:0;display:flex;flex-direction:column;gap:2px}
+.mobile-menu-link-label span:first-child{font-size:12px;line-height:1.25;font-weight:650}
+.mobile-menu-link-label small{color:#728da8;font-size:9px;font-weight:650;letter-spacing:.1em}
+.mobile-menu-contact{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:49px;margin-top:13px;padding:0 17px;border-radius:13px;background:linear-gradient(105deg,#06b6d4,#3b82f6);color:#041827;font-size:13px;font-weight:800;box-shadow:0 8px 28px rgba(6,182,212,.17)}
+body.mobile-menu-open{overflow:hidden}
+@keyframes mobile-menu-appear{from{opacity:0;transform:translateY(-9px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(min-width:640px) and (max-width:767px){.mobile-menu-panel{top:90px;right:24px;max-height:calc(100dvh - 104px)}}
+@media(min-width:768px){.mobile-menu-panel,.mobile-menu-backdrop{display:none!important}body.mobile-menu-open{overflow:auto}}
+@media(max-width:340px){.mobile-menu-panel{padding:14px}.mobile-menu-link{gap:6px;padding:10px 8px}.mobile-menu-link-label span:first-child{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.mobile-menu-panel{animation:none}.mobile-menu-trigger,.mobile-menu-icon span,.mobile-menu-link{transition:none}}

@@ -19,6 +19,7 @@
     
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/mobile-nav.css">
 
     <script>
         tailwind.config = {
@@ -124,29 +125,37 @@
                         </button>
                     </div>
 
-                    <!-- Mobile Menu Button -->
+                    <!-- Mobile menu toggle: animated three-line icon -->
                     <div class="md:hidden">
-                        <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-1.5" aria-label="Abrir menu de navegação">
-                            <i class="fa-solid fa-bars text-lg"></i>
+                        <button id="mobile-menu-btn" type="button" class="mobile-menu-trigger" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu de navegação">
+                            <span class="mobile-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Nav Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-card border-b border-gray-800 shadow-xl absolute w-full">
-            <ul class="px-4 pt-2 pb-6 space-y-2 text-center">
-                <li><a href="#inicio" data-i18n="nav_home" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Início</a></li>
-                <li><a href="#resumo" data-i18n="nav_summary" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Resumo</a></li>
-                <li><a href="#habilidades" data-i18n="nav_skills" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Habilidades</a></li>
-                <li><a href="#projetos" data-i18n="nav_case" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Projetos</a></li>
-                <li><a href="#experiencia" data-i18n="nav_experience" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Experiência</a></li>
-                <li><a href="#formacao" data-i18n="nav_education" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Formação</a></li>
-                <li><a href="#contato" data-i18n="nav_contact" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Contato</a></li>
-            </ul>
-        </div>
     </header>
+    <!-- Floating mobile navigation stays outside the glass header for correct positioning -->
+    <div id="mobile-menu-backdrop" class="mobile-menu-backdrop" aria-hidden="true" hidden></div>
+    <nav id="mobile-menu" class="mobile-menu-panel md:hidden" aria-label="Navegação" hidden>
+        <div class="mobile-menu-head">
+            <div>
+                <div class="mobile-menu-eyebrow" data-i18n="mobile_menu_title">Navegação</div>
+                <div class="mobile-menu-subtitle" data-i18n="mobile_menu_subtitle">Explore o portfólio</div>
+            </div>
+            <button id="mobile-menu-close" class="mobile-menu-close" type="button" aria-label="Fechar menu de navegação"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="#inicio" class="mobile-menu-link"><i class="fa-solid fa-house" aria-hidden="true"></i><span class="mobile-menu-link-label"><span data-i18n="nav_home">Início</span><small>01</small></span></a>
+            <a href="#resumo" class="mobile-menu-link"><i class="fa-solid fa-user-tie" aria-hidden="true"></i><span class="mobile-menu-link-label"><span data-i18n="nav_summary">Resumo</span><small>02</small></span></a>
+            <a href="#habilidades" class="mobile-menu-link"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i><span class="mobile-menu-link-label"><span data-i18n="nav_skills">Habilidades</span><small>03</small></span></a>
+            <a href="#projetos" class="mobile-menu-link"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span class="mobile-menu-link-label"><span data-i18n="nav_case">Projetos</span><small>04</small></span></a>
+            <a href="#experiencia" class="mobile-menu-link"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><span class="mobile-menu-link-label"><span data-i18n="nav_experience">Experiência</span><small>05</small></span></a>
+            <a href="#formacao" class="mobile-menu-link"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><span class="mobile-menu-link-label"><span data-i18n="nav_education">Formação</span><small>06</small></span></a>
+        </div>
+        <a href="#contato" class="mobile-menu-contact"><span><i class="fa-regular fa-envelope" aria-hidden="true"></i> <span data-i18n="mobile_menu_cta">Vamos conversar</span></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+    </nav>
 
     <main>
         <section id="inicio" class="pt-24 pb-12 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-28 flex items-center min-h-screen relative overflow-hidden">
@@ -637,6 +646,7 @@
     <script>
         const translations = {
             pt: {
+                mobile_menu_title: "Navegação", mobile_menu_subtitle: "Explore o portfólio", mobile_menu_cta: "Vamos conversar", mobile_menu_open: "Abrir menu de navegação", mobile_menu_close: "Fechar menu de navegação",
                 nav_home: "Início", nav_summary: "Resumo", nav_skills: "Habilidades", nav_case: "Projetos", nav_experience: "Experiência", nav_education: "Formação", nav_contact: "Contato",
                 hero_hello: "Olá, eu sou", hero_role1: "Coordenador de Portfólio", hero_role_highlight: "& Especialista em Dados",
                 hero_desc: "Transformando dados complexos em insights acionáveis que impulsionam decisões e eficiência operacional, com foco na arquitetura analítica e inovação.",
@@ -689,6 +699,7 @@
                 contact_title: "Contato", contact_subtitle: "Vamos conversar?", contact_desc: "Estou sempre aberto a conversar sobre análise de dados, BI, gestão de portfólio e novas oportunidades. Sinta-se à vontade para me mandar uma mensagem por qualquer um dos canais abaixo!", contact_email: "E-mail", contact_phone: "WhatsApp", contact_linkedin: "LinkedIn"
             },
             en: {
+                mobile_menu_title: "Navigation", mobile_menu_subtitle: "Explore the portfolio", mobile_menu_cta: "Get in touch", mobile_menu_open: "Open navigation menu", mobile_menu_close: "Close navigation menu",
                 nav_home: "Home", nav_summary: "Summary", nav_skills: "Skills", nav_case: "Projects", nav_experience: "Experience", nav_education: "Education", nav_contact: "Contact",
                 hero_hello: "Hello, I am", hero_role1: "Portfolio Coordinator", hero_role_highlight: "& Data Specialist",
                 hero_desc: "Transforming complex data into actionable insights that drive decisions and operational efficiency, with a focus on analytical architecture and innovation.",
@@ -741,6 +752,7 @@
                 contact_title: "Contact", contact_subtitle: "Let's Talk?", contact_desc: "I am always open to discussing data analysis, BI, portfolio management, and new opportunities. Feel free to send me a message through any of the channels below!", contact_email: "Email", contact_phone: "WhatsApp", contact_linkedin: "LinkedIn"
             },
             es: {
+                mobile_menu_title: "Navegación", mobile_menu_subtitle: "Explora el portafolio", mobile_menu_cta: "Hablemos", mobile_menu_open: "Abrir menú de navegación", mobile_menu_close: "Cerrar menú de navegación",
                 nav_home: "Inicio", nav_summary: "Resumen", nav_skills: "Habilidades", nav_case: "Proyectos", nav_experience: "Experiencia", nav_education: "Educación", nav_contact: "Contacto",
                 hero_hello: "Hola, soy", hero_role1: "Coordinador de Portafolio", hero_role_highlight: "& Especialista en Datos",
                 hero_desc: "Transformando datos complejos en insights procesables que impulsan decisiones y eficiencia operativa, con enfoque en la arquitectura analítica e innovación.",
@@ -814,6 +826,7 @@
                     el.innerHTML = translations[lang][key];
                 }
             });
+            if (window.syncMobileMenuLanguage) window.syncMobileMenuLanguage();
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -821,24 +834,6 @@
             setLanguage(savedLang);
 
             document.getElementById('year').textContent = new Date().getFullYear();
-
-            // Menu Mobile Toggle
-            const btn = document.getElementById('mobile-menu-btn');
-            const menu = document.getElementById('mobile-menu');
-            const menuLinks = menu.querySelectorAll('a');
-
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-                const isExpanded = !menu.classList.contains('hidden');
-                btn.setAttribute('aria-expanded', isExpanded);
-            });
-
-            menuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    menu.classList.add('hidden');
-                    btn.setAttribute('aria-expanded', 'false');
-                });
-            });
 
             // Reveal on Scroll
             const reveals = document.querySelectorAll('.reveal');
@@ -876,5 +871,6 @@
             });
         });
     </script>
+    <script defer src="./js/mobile-nav.js"></script>
 </body>
 </html>
