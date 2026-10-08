@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Executive Portfolio Analytics: dashboard interativo de seguros com dados sintéticos, filtros e indicadores de rentabilidade.">
+  <meta name="theme-color" content="#0f172a">
+  <title>Executive Portfolio Analytics | Ewerton Vieira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dashboard.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
+  <script defer src="./dashboard.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../index.html#inicio" aria-label="Ewerton Vieira, voltar ao portfólio">Ewerton<span>.</span></a>
+      <div class="header-actions">
+        <span class="header-section"><span class="header-dot"></span> Analytics Lab</span>
+        <a class="back-link" href="../../index.html#projetos"><span aria-hidden="true">←</span> Voltar ao portfólio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="page-container">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="eyebrow"><span class="eyebrow-line"></span> INSURANCE BUSINESS INTELLIGENCE <span class="eyebrow-line"></span></div>
+      <div class="hero-main">
+        <div class="hero-copy">
+          <h1 id="page-title">Executive <span class="gradient-text">Portfolio Analytics</span></h1>
+          <p>Uma visão executiva da performance de uma carteira de seguros. Explore produção, sinistralidade, rentabilidade e mix comercial para orientar decisões.</p>
+        </div>
+        <div class="data-notice" role="note">
+          <span class="notice-icon" aria-hidden="true">◈</span>
+          <div><strong>Ambiente demonstrativo</strong><small>100% dados sintéticos • Jan/2024 – Set/2026</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="filters-panel" aria-labelledby="filters-title">
+      <div class="section-label-row">
+        <div><span class="overline">EXPLORAR PORTFÓLIO</span><h2 id="filters-title">Visão consolidada</h2></div>
+        <span class="filter-status" id="filter-status" aria-live="polite">Carregando filtros…</span>
+      </div>
+      <div class="filter-controls">
+        <label class="filter-field">Período
+          <select id="period-filter">
+            <option value="last12">Últimos 12 meses</option>
+            <option value="2026">2026 (até setembro)</option>
+            <option value="2025">2025 completo</option>
+            <option value="2024">2024 completo</option>
+            <option value="all">Todo o histórico</option>
+          </select>
+        </label>
+        <label class="filter-field">Produto
+          <select id="product-filter"><option value="all">Todos os produtos</option></select>
+        </label>
+        <label class="filter-field">Região
+          <select id="region-filter"><option value="all">Todas as regiões</option></select>
+        </label>
+        <label class="filter-field">Canal
+          <select id="channel-filter"><option value="all">Todos os canais</option></select>
+        </label>
+        <div class="filter-actions">
+          <button id="reset-filters" class="button button-subtle" type="button" aria-label="Limpar todos os filtros">↺ <span>Limpar</span></button>
+          <button id="export-csv" class="button button-primary" type="button">↓ <span>Exportar CSV</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="kpi-title" class="section-block">
+      <div class="section-heading"><div><span class="overline">01 / INDICADORES</span><h2 id="kpi-title">Resumo executivo</h2></div><span class="section-subtle">Valores acumulados no período selecionado</span></div>
+      <div class="kpi-grid" aria-live="polite">
+        <article class="kpi-card"><div class="kpi-head"><span>Prêmios emitidos</span><span class="kpi-symbol">↗</span></div><p class="kpi-value" id="kpi-premium">—</p><p class="kpi-foot" id="kpi-premium-detail">Volume de produção</p></article>
+        <article class="kpi-card"><div class="kpi-head"><span>Sinistralidade</span><span class="kpi-symbol">◫</span></div><p class="kpi-value" id="kpi-loss">—</p><p class="kpi-foot">Sinistros / prêmios ganhos</p></article>
+        <article class="kpi-card"><div class="kpi-head"><span>Índice combinado</span><span class="kpi-symbol">◎</span></div><p class="kpi-value" id="kpi-combined">—</p><p class="kpi-foot" id="kpi-combined-detail">Sinistros + despesas / ganhos</p></article>
+        <article class="kpi-card"><div class="kpi-head"><span>Resultado técnico</span><span class="kpi-symbol">✦</span></div><p class="kpi-value" id="kpi-result">—</p><p class="kpi-foot">Prêmios ganhos – custos técnicos</p></article>
+        <article class="kpi-card featured"><div class="kpi-head"><span>Crescimento YoY</span><span class="kpi-symbol">↗</span></div><p class="kpi-value" id="kpi-yoy">—</p><p class="kpi-foot" id="kpi-yoy-detail">Produção versus período anterior</p></article>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="evolution-title">
+      <div class="section-heading"><div><span class="overline">02 / EVOLUÇÃO</span><h2 id="evolution-title">Performance ao longo do tempo</h2></div><span class="section-subtle">Prêmios ganhos, sinistros e combinado mensal</span></div>
+      <div class="chart-grid primary-grid">
+        <article class="panel trend-panel"><div class="panel-heading"><div><h3>Produção & sinistros</h3><p>Evolução mensal em R$ e índice combinado</p></div><span class="panel-tag">Tendência</span></div><div class="chart chart-tall" id="trend-chart" role="img" aria-label="Gráfico de evolução mensal de prêmios ganhos, sinistros e índice combinado"></div></article>
+        <article class="panel"><div class="panel-heading"><div><h3>Mix de produtos</h3><p>Participação sobre prêmios emitidos</p></div><span class="panel-tag">Interativo</span></div><div class="chart chart-tall" id="product-chart" role="img" aria-label="Gráfico de participação por produto, clique para filtrar"></div><p class="chart-tip">Selecione uma fatia para filtrar por produto</p></article>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="drill-title">
+      <div class="section-heading"><div><span class="overline">03 / DRILL-DOWN</span><h2 id="drill-title">Onde está a performance?</h2></div><span class="section-subtle">Clique nas categorias dos gráficos para aplicar filtros</span></div>
+      <div class="chart-grid">
+        <article class="panel"><div class="panel-heading"><div><h3>Índice combinado por produto</h3><p>Valores abaixo de 100% indicam margem técnica positiva</p></div><span class="panel-tag">Rentabilidade</span></div><div class="chart chart-medium" id="performance-chart" role="img" aria-label="Índice combinado por produto, clique nas barras para filtrar"></div></article>
+        <article class="panel"><div class="panel-heading"><div><h3>Produção por região</h3><p>Distribuição de prêmios emitidos</p></div><span class="panel-tag">Geografia</span></div><div class="chart chart-medium" id="region-chart" role="img" aria-label="Prêmios emitidos por região, clique nas barras para filtrar"></div></article>
+        <article class="panel span-two"><div class="panel-heading"><div><h3>Distribuição por canal</h3><p>Origem da produção e participação no mix</p></div><span class="panel-tag">Comercial</span></div><div class="chart chart-short" id="channel-chart" role="img" aria-label="Prêmios emitidos por canal, clique nas barras para filtrar"></div></article>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="detail-title">
+      <div class="section-heading"><div><span class="overline">04 / DETALHAMENTO</span><h2 id="detail-title">Indicadores por produto</h2></div><span class="section-subtle">KPIs calculados sobre os registros filtrados</span></div>
+      <article class="panel table-panel"><div class="table-scroll"><table><caption class="sr-only">Tabela de produção e rentabilidade por produto</caption><thead><tr><th scope="col">Produto</th><th scope="col">Prêmios emitidos</th><th scope="col">Prêmios ganhos</th><th scope="col">Sinistros</th><th scope="col">Sinistralidade</th><th scope="col">Índice combinado</th><th scope="col">Resultado técnico</th></tr></thead><tbody id="details-body"></tbody></table></div><p class="table-note">Simulação educacional. Resultado técnico = prêmios ganhos – sinistros – despesas administrativas – comissões.</p></article>
+    </section>
+
+    <section class="closing-row" aria-label="Resumo e metodologia">
+      <article class="insight-panel"><span class="overline">LEITURA EXECUTIVA</span><h2>Insights automáticos</h2><ul id="insights-list" aria-live="polite"><li>Calculando os indicadores…</li></ul></article>
+      <article class="method-panel"><span class="overline">METODOLOGIA</span><h2>Dados de demonstração</h2><p>Base mensal determinística gerada no navegador com valores e padrões simulados por produto, região e canal. Não representa a Zurich ou qualquer outra seguradora. Variações, sinistros e índices não devem ser usados em decisões reais.</p><p>Indicador combinado = (sinistros incorridos + despesas administrativas + comissões) ÷ prêmios ganhos. YoY compara a mesma janela do ano anterior, quando disponível.</p></article>
+    </section>
+    <footer class="page-footer"><span>© <span id="year"></span> Ewerton Vieira · Executive Portfolio Analytics</span><a href="../../index.html#projetos">Conheça outros projetos <span aria-hidden="true">↗</span></a></footer>
+  </main>
+  <noscript><div class="noscript">Ative o JavaScript para utilizar filtros, gráficos e indicadores interativos.</div></noscript>
+</body>
+</html>
