@@ -101,7 +101,7 @@
                             <li><a href="#inicio" data-i18n="nav_home" class="text-sm font-medium hover:text-accent transition-colors">Início</a></li>
                             <li><a href="#resumo" data-i18n="nav_summary" class="text-sm font-medium hover:text-accent transition-colors">Resumo</a></li>
                             <li><a href="#habilidades" data-i18n="nav_skills" class="text-sm font-medium hover:text-accent transition-colors">Habilidades</a></li>
-                            <li><a href="#projetos" data-i18n="nav_case" class="text-sm font-medium hover:text-accent transition-colors">Case</a></li>
+                            <li><a href="#projetos" data-i18n="nav_case" class="text-sm font-medium hover:text-accent transition-colors">Projetos</a></li>
                             <li><a href="#experiencia" data-i18n="nav_experience" class="text-sm font-medium hover:text-accent transition-colors">Experiência</a></li>
                             <li><a href="#formacao" data-i18n="nav_education" class="text-sm font-medium hover:text-accent transition-colors">Formação</a></li>
                             <li><a href="#contato" data-i18n="nav_contact" class="text-sm font-medium hover:text-accent transition-colors">Contato</a></li>
@@ -140,7 +140,7 @@
                 <li><a href="#inicio" data-i18n="nav_home" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Início</a></li>
                 <li><a href="#resumo" data-i18n="nav_summary" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Resumo</a></li>
                 <li><a href="#habilidades" data-i18n="nav_skills" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Habilidades</a></li>
-                <li><a href="#projetos" data-i18n="nav_case" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Case</a></li>
+                <li><a href="#projetos" data-i18n="nav_case" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Projetos</a></li>
                 <li><a href="#experiencia" data-i18n="nav_experience" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Experiência</a></li>
                 <li><a href="#formacao" data-i18n="nav_education" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Formação</a></li>
                 <li><a href="#contato" data-i18n="nav_contact" class="block px-3 py-2 text-sm font-medium hover:text-accent hover:bg-gray-800 rounded-md">Contato</a></li>
@@ -297,8 +297,28 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="reveal">
                     <div class="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-10">
-                        <h2 data-i18n="case_title" class="text-xl sm:text-3xl md:text-4xl font-heading font-bold text-white whitespace-nowrap">Case</h2>
+                        <h2 data-i18n="case_title" class="text-xl sm:text-3xl md:text-4xl font-heading font-bold text-white whitespace-nowrap">Projetos</h2>
                         <div class="h-px bg-gray-700 flex-grow"></div>
+                    </div>
+
+                    <!-- Executive Portfolio Analytics - interactive portfolio case -->
+                    <div class="bg-card border border-accent/30 rounded-2xl overflow-hidden shadow-2xl mb-7">
+                        <div class="p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                            <div class="max-w-3xl">
+                                <span data-i18n="analytics_badge" class="inline-block text-accent text-xs font-bold tracking-widest uppercase mb-3">Novo · Dashboard interativo</span>
+                                <h3 class="text-xl sm:text-2xl font-heading font-bold text-white mb-3">Executive Portfolio Analytics</h3>
+                                <p data-i18n="analytics_desc" class="text-gray-400 text-sm sm:text-base leading-relaxed">Explore um portfólio de seguros com dados 100% sintéticos: KPIs de produção, sinistralidade, resultado técnico, filtros cruzados por região, produto e canal, gráficos interativos e exportação CSV.</p>
+                                <div class="flex flex-wrap items-center gap-2 mt-4 text-xs text-accent">
+                                    <span class="px-3 py-1 rounded-full bg-gray-800 border border-gray-700">JavaScript</span>
+                                    <span class="px-3 py-1 rounded-full bg-gray-800 border border-gray-700">Apache ECharts</span>
+                                    <span class="px-3 py-1 rounded-full bg-gray-800 border border-gray-700">Data Visualization</span>
+                                </div>
+                            </div>
+                            <a href="dashboards/executive-portfolio/index.html" data-i18n="analytics_cta" class="flex-shrink-0 inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-accent hover:bg-accentHover text-slate-950 font-semibold transition-colors shadow-[0_0_18px_rgba(6,182,212,0.24)] text-sm">Explorar dashboard ↗</a>
+                        </div>
+                        <div class="grid grid-cols-3 divide-x divide-gray-800 border-t border-gray-800 bg-darker/40 text-center text-xs sm:text-sm text-gray-300">
+                            <div class="py-3 px-2">5 KPIs</div><div class="py-3 px-2">Cross-filter</div><div class="py-3 px-2">CSV Export</div>
+                        </div>
                     </div>
 
                     <div class="bg-card border border-gray-800 rounded-2xl overflow-hidden shadow-2xl">
@@ -617,7 +637,7 @@
     <script>
         const translations = {
             pt: {
-                nav_home: "Início", nav_summary: "Resumo", nav_skills: "Habilidades", nav_case: "Case", nav_experience: "Experiência", nav_education: "Formação", nav_contact: "Contato",
+                nav_home: "Início", nav_summary: "Resumo", nav_skills: "Habilidades", nav_case: "Projetos", nav_experience: "Experiência", nav_education: "Formação", nav_contact: "Contato",
                 hero_hello: "Olá, eu sou", hero_role1: "Coordenador de Portfólio", hero_role_highlight: "& Especialista em Dados",
                 hero_desc: "Transformando dados complexos em insights acionáveis que impulsionam decisões e eficiência operacional, com foco na arquitetura analítica e inovação.",
                 hero_btn_contact: "Entrar em Contato", hero_btn_linkedin: "Ver LinkedIn",
@@ -627,7 +647,7 @@
                 summary_stat1: "Anos de Experiência", summary_stat2_title: "Gestor", summary_stat2: "Portfólio & Dados", summary_stat4: "Base de Atuação",
                 skills_title: "Competências Técnicas", skills_portfolio: "Análise de Portfólio", skills_lang_title: "Linguagens", skills_aff_title: "Análise de Afinidades",
                 skills_aff1: "Gestão de Carteira", skills_aff2: "Performance de Produto", skills_aff3: "Avaliação de Riscos", skills_aff4: "Monitoramento de Sinistralidade",
-                case_title: "Case", case_subtitle: "Dashboard Estratégico de Portfólio",
+                analytics_badge: "Novo · Dashboard interativo", analytics_desc: "Explore um portfólio de seguros com dados 100% sintéticos: KPIs de produção, sinistralidade, resultado técnico, filtros cruzados por região, produto e canal, gráficos interativos e exportação CSV.", analytics_cta: "Explorar dashboard ↗", case_title: "Projetos", case_subtitle: "Dashboard Estratégico de Portfólio",
                 case_desc: "Case desenvolvido para o processo seletivo da Zurich. Este painel interativo demonstra capacidades avançadas de modelagem, tratamento de dados e UI/UX aplicados ao Business Intelligence, permitindo uma análise clara e acionável dos indicadores do negócio.",
                 case_hint: "Interaja com o painel acima. Utilize o modo tela cheia no canto inferior direito do dashboard para a melhor experiência.",
                 exp_title: "Experiência Profissional", loc_sp: "| São Paulo, SP",
@@ -669,7 +689,7 @@
                 contact_title: "Contato", contact_subtitle: "Vamos conversar?", contact_desc: "Estou sempre aberto a conversar sobre análise de dados, BI, gestão de portfólio e novas oportunidades. Sinta-se à vontade para me mandar uma mensagem por qualquer um dos canais abaixo!", contact_email: "E-mail", contact_phone: "WhatsApp", contact_linkedin: "LinkedIn"
             },
             en: {
-                nav_home: "Home", nav_summary: "Summary", nav_skills: "Skills", nav_case: "Case", nav_experience: "Experience", nav_education: "Education", nav_contact: "Contact",
+                nav_home: "Home", nav_summary: "Summary", nav_skills: "Skills", nav_case: "Projects", nav_experience: "Experience", nav_education: "Education", nav_contact: "Contact",
                 hero_hello: "Hello, I am", hero_role1: "Portfolio Coordinator", hero_role_highlight: "& Data Specialist",
                 hero_desc: "Transforming complex data into actionable insights that drive decisions and operational efficiency, with a focus on analytical architecture and innovation.",
                 hero_btn_contact: "Contact Me", hero_btn_linkedin: "View LinkedIn",
@@ -679,7 +699,7 @@
                 summary_stat1: "Years of Experience", summary_stat2_title: "Manager", summary_stat2: "Portfolio & Data", summary_stat4: "Location",
                 skills_title: "Technical Skills", skills_portfolio: "Portfolio Analysis", skills_lang_title: "Languages", skills_aff_title: "Affinity Analysis",
                 skills_aff1: "Portfolio Management", skills_aff2: "Product Performance", skills_aff3: "Risk Assessment", skills_aff4: "Claims Monitoring",
-                case_title: "Case", case_subtitle: "Strategic Portfolio Dashboard",
+                analytics_badge: "New · Interactive dashboard", analytics_desc: "Explore a synthetic insurance portfolio with production KPIs, loss ratios, underwriting results, cross-filters by region, product and channel, interactive charts, and CSV export. No real company data.", analytics_cta: "Explore dashboard ↗", case_title: "Projects", case_subtitle: "Strategic Portfolio Dashboard",
                 case_desc: "Case developed for the Zurich selection process. This interactive dashboard demonstrates advanced modeling, data processing, and UI/UX capabilities applied to BI, allowing a clear and actionable analysis of business indicators.",
                 case_hint: "Interact with the dashboard above. Use the full-screen mode in the bottom right corner for the best experience.",
                 exp_title: "Professional Experience", loc_sp: "| São Paulo, BR",
@@ -721,7 +741,7 @@
                 contact_title: "Contact", contact_subtitle: "Let's Talk?", contact_desc: "I am always open to discussing data analysis, BI, portfolio management, and new opportunities. Feel free to send me a message through any of the channels below!", contact_email: "Email", contact_phone: "WhatsApp", contact_linkedin: "LinkedIn"
             },
             es: {
-                nav_home: "Inicio", nav_summary: "Resumen", nav_skills: "Habilidades", nav_case: "Caso", nav_experience: "Experiencia", nav_education: "Educación", nav_contact: "Contacto",
+                nav_home: "Inicio", nav_summary: "Resumen", nav_skills: "Habilidades", nav_case: "Proyectos", nav_experience: "Experiencia", nav_education: "Educación", nav_contact: "Contacto",
                 hero_hello: "Hola, soy", hero_role1: "Coordinador de Portafolio", hero_role_highlight: "& Especialista en Datos",
                 hero_desc: "Transformando datos complejos en insights procesables que impulsan decisiones y eficiencia operativa, con enfoque en la arquitectura analítica e innovación.",
                 hero_btn_contact: "Contáctame", hero_btn_linkedin: "Ver LinkedIn",
@@ -731,7 +751,7 @@
                 summary_stat1: "Años de Experiencia", summary_stat2_title: "Gestor", summary_stat2: "Portafolio y Datos", summary_stat4: "Ubicación",
                 skills_title: "Competencias Técnicas", skills_portfolio: "Análisis de Cartera", skills_lang_title: "Idiomas", skills_aff_title: "Análisis de Afinidades",
                 skills_aff1: "Gestión de Cartera", skills_aff2: "Rendimiento de Producto", skills_aff3: "Evaluación de Riesgos", skills_aff4: "Monitoreo de Siniestralidad",
-                case_title: "Caso de Éxito", case_subtitle: "Dashboard Estratégico de Cartera",
+                analytics_badge: "Nuevo · Panel interactivo", analytics_desc: "Explora una cartera de seguros con datos 100% sintéticos: KPIs de producción, siniestralidad, resultado técnico, filtros por región, producto y canal, gráficos interactivos y exportación CSV.", analytics_cta: "Explorar panel ↗", case_title: "Proyectos", case_subtitle: "Dashboard Estratégico de Cartera",
                 case_desc: "Case desarrollado para el proceso de selección de Zurich. Este panel interactivo demuestra capacidades avanzadas de modelado, procesamiento de datos y UI/UX aplicadas a BI, permitiendo un análisis claro y procesable de los indicadores comerciales.",
                 case_hint: "Interactúa con el panel de arriba. Usa el modo de pantalla completa en la esquina inferior derecha para una mejor experiencia.",
                 exp_title: "Experiencia Profesional", loc_sp: "| São Paulo, BR",
